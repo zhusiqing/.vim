@@ -38,6 +38,9 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'sjl/gundo.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'itchyny/lightline.vim'
+Plug 'othree/xml.vim'
 
 
 Plug 'digitaltoad/vim-jade'
@@ -79,7 +82,6 @@ set softtabstop=2
 
 set ruler
 set autoindent
-set copyindent
 set cindent
 set smartindent
 
@@ -135,6 +137,11 @@ set rnu
 
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
+if has('autocmd')
+  autocmd BufWritePost .vimrc source $MYVIMRC
+endif
+
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
