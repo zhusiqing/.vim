@@ -20,7 +20,7 @@ Plug 'godlygeek/csapprox'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'kien/ctrlp.vim'
-    let g:ctrlp_cmd = 'CtrlPMixed'
+    let g:ctrlp_cmd = 'CtrlPCurWD'
     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
     set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
@@ -31,17 +31,16 @@ Plug 'mhinz/vim-startify'
 Plug 'oblitum/rainbow'
   let g:rainbow_active=1
 
-Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 
 Plug 'rhysd/clever-f.vim'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'sjl/gundo.vim'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'itchyny/lightline.vim'
 Plug 'othree/xml.vim'
 
+Plug 'stephpy/vim-yaml'
 
 Plug 'digitaltoad/vim-jade'
     au Filetype jade setlocal ts=2 sts=2 sw=2
@@ -49,7 +48,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
     au Filetype stylus setlocal ts=2 sts=2 sw=2
 
-Plug 'zhuangya/YankRing.vim'
+Plug 'vimx/YankRing.vim'
 
 call plug#end()
 
@@ -94,7 +93,7 @@ set autoread
 
 set title
 
-colorscheme Patriot
+colorscheme Darkside
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -108,15 +107,6 @@ if has("mac") || has("macunix")
   vmap <D-j> <M-j>
   vmap <D-k> <M-k>
 endif
-
-" Delete trailing white space on save, useful for Python ,JavaScript and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.js :call DeleteTrailingWS()
 
 set wildmenu
 set t_Co=256
