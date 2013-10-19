@@ -1,56 +1,173 @@
-call plug#begin()
+set nocompatible
+filetype off
 
-Plug 'junegunn/vim-plug'
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-Plug 'tpope/vim-sensible'
+Bundle 'gmarik/vundle'
 
-Plug "MarcWeber/vim-addon-mw-utils"
-Plug "tomtom/tlib_vim"
-Plug "garbas/vim-snipmate"
+Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-vividchalk'
 
-Plug 'Lokaltog/vim-easymotion'
+Bundle 'goatslacker/mango.vim'
+
+Bundle 'kien/ctrlp.vim'
+  let g:ctrlp_working_path_mode='ra'
+  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+  let g:ctrlp_user_command = {
+    \ 'types': {
+      \ 1: ['.git', 'cd %s && git ls-files'],
+      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+      \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
+Bundle 'sgur/ctrlp-extensions.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+  let g:ctrlp_extensions = ['yankring', 'cmdline', 'menu', 'funky']
+Bundle 'vimx/YankRing.vim'
+Bundle 'vimx/colorsupport.vim'
+
+Bundle 'Lokaltog/vim-easymotion'
   let g:EasyMotion_leader_key='<Leader>'
 
-Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/neosnippet.vim'
-  source ~/.vim/neocompleterc
+Bundle 'rking/ag.vim'
 
-Plug 'daylerees/colour-schemes', {'rtp': 'vim-themes'} 
-Plug 'godlygeek/csapprox'
-Plug 'junegunn/vim-easy-align'
+Bundle 'Shougo/neocomplete.vim'
+  "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+  " Disable AutoComplPop.
+  let g:acp_enableAtStartup = 0
+  " Use neocomplete.
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_auto_select = 1
+  " Use smartcase.
+  let g:neocomplete#enable_smart_case = 1
+  " Set minimum syntax keyword length.
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-Plug 'kien/ctrlp.vim'
-    let g:ctrlp_cmd = 'CtrlPCurWD'
-    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+  " Define dictionary.
+  let g:neocomplete#sources#dictionary#dictionaries = {
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+          \ }
 
-Plug 'kshenoy/vim-signature'
-Plug 'mhinz/vim-signify'
-Plug 'mhinz/vim-startify'
+  " Define keyword.
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-Plug 'oblitum/rainbow'
+  " Plugin key-mappings.
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#smart_close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
+  " Close popup by <Space>.
+  "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+  " For cursor moving in insert mode(Not recommended)
+  "inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+  "inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+  "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+  "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+  " Or set this.
+  "let g:neocomplete#enable_cursor_hold_i = 1
+  " Or set this.
+  "let g:neocomplete#enable_insert_char_pre = 1
+
+  " AutoComplPop like behavior.
+  "let g:neocomplete#enable_auto_select = 1
+
+  " Shell like behavior(not recommended).
+  "set completeopt+=longest
+  "let g:neocomplete#enable_auto_select = 1
+  "let g:neocomplete#disable_auto_complete = 1
+  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+  " Enable omni completion.
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+  " Enable heavy omni completion.
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+  "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+  "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+  " For perlomni.vim setting.
+  " https://github.com/c9s/perlomni.vim
+  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+Bundle 'Shougo/neosnippet'
+  " Plugin key-mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  " SuperTab like snippets behavior.
+  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
+
+  " For snippet_complete marker.
+  if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
+
+  let g:neosnippet#enable_snipmate_compatibility=1
+  let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/'
+
+Bundle "honza/vim-snippets"
+
+Bundle 'junegunn/vim-easy-align'
+  vnoremap <silent> <Enter> :EasyAlign<Enter>
+
+Bundle 'mhinz/vim-signify'
+Bundle 'mhinz/vim-startify'
+
+Bundle 'oblitum/rainbow'
   let g:rainbow_active=1
 
-Plug 'pangloss/vim-javascript'
+Bundle 'rhysd/clever-f.vim'
+Bundle 'tomtom/tcomment_vim'
 
-Plug 'rhysd/clever-f.vim'
-Plug 'tomtom/tcomment_vim'
+Bundle 'itchyny/lightline.vim'
 
-Plug 'sjl/gundo.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'othree/xml.vim'
+Bundle 'stephpy/vim-yaml'
 
-Plug 'stephpy/vim-yaml'
-
-Plug 'digitaltoad/vim-jade'
+Bundle 'digitaltoad/vim-jade'
     au Filetype jade setlocal ts=2 sts=2 sw=2
     au Filetype javascript setlocal ts=2 sts=2 shiftwidth=2
-Plug 'wavded/vim-stylus'
+Bundle 'wavded/vim-stylus'
     au Filetype stylus setlocal ts=2 sts=2 sw=2
 
-Plug 'vimx/YankRing.vim'
+Bundle 'plasticboy/vim-markdown'
 
-call plug#end()
+filetype plugin indent on
 
 let mapleader=","
 nnoremap ; :
@@ -62,7 +179,7 @@ set smartcase
 set ignorecase
 set whichwrap+=<,>,h,l,[,]
 set showcmd
-set guifont=Source\ Code\ Pro:h12
+set guifont=Source\ Code\ Pro:h14
 
 set undofile
 set undodir=~/.vim/undodir
@@ -93,8 +210,6 @@ set autoread
 
 set title
 
-colorscheme Darkside
-
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -124,14 +239,10 @@ set tm=500
 filetype plugin indent on
 set number
 set rnu
+colorscheme vividchalk
 
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-if has('autocmd')
-  autocmd BufWritePost .vimrc source $MYVIMRC
-endif
-
+set listchars=tab:>_,trail:»,extends:>,precedes:<,nbsp:·
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
