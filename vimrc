@@ -11,6 +11,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vividchalk'
 
+Bundle 'othree/html5-syntax.vim'
+Bundle 'gorodinskiy/vim-coloresque'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'leshill/vim-json'
 Bundle 'goatslacker/mango.vim'
 
 Bundle 'kien/ctrlp.vim'
@@ -29,6 +33,14 @@ Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'vimx/YankRing.vim'
 Bundle 'vimx/colorsupport.vim'
 
+Bundle 'thinca/vim-quickrun'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'pangloss/vim-javascript'
+  let javascript_conceal=1
+Bundle 'edsono/vim-matchit'
+Bundle 'ujihisa/neco-look'
+
+
 Bundle 'Lokaltog/vim-easymotion'
   let g:EasyMotion_leader_key='<Leader>'
 
@@ -40,7 +52,6 @@ Bundle 'Shougo/neocomplete.vim'
   let g:acp_enableAtStartup = 0
   " Use neocomplete.
   let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_auto_select = 1
   " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
   " Set minimum syntax keyword length.
@@ -167,12 +178,13 @@ Bundle 'wavded/vim-stylus'
 
 Bundle 'plasticboy/vim-markdown'
 
-filetype plugin indent on
 
 let mapleader=","
 nnoremap ; :
 vmap Q gq
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+
+filetype plugin indent on
 
 syntax enable
 set smartcase
@@ -201,7 +213,9 @@ set autoindent
 set cindent
 set smartindent
 
+set matchpairs+=<:>
 set showmatch
+set matchtime=3
 
 set wrap
 set magic
@@ -236,7 +250,6 @@ set novisualbell
 set mouse=a
 set t_vb=
 set tm=500
-filetype plugin indent on
 set number
 set rnu
 colorscheme vividchalk
