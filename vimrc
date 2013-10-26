@@ -17,6 +17,10 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'leshill/vim-json'
 Bundle 'goatslacker/mango.vim'
 
+Bundle 'bling/vim-airline'
+  let g:airline_powerline_fonts=1
+
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/ctrlp.vim'
   let g:ctrlp_working_path_mode='ra'
   let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -31,9 +35,7 @@ Bundle 'sgur/ctrlp-extensions.vim'
 Bundle 'tacahiroy/ctrlp-funky'
   let g:ctrlp_extensions = ['yankring', 'cmdline', 'menu', 'funky']
 Bundle 'vimx/YankRing.vim'
-Bundle 'vimx/colorsupport.vim'
 
-Bundle 'thinca/vim-quickrun'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'pangloss/vim-javascript'
   let javascript_conceal=1
@@ -158,15 +160,8 @@ Bundle 'junegunn/vim-easy-align'
   vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 Bundle 'mhinz/vim-signify'
-Bundle 'mhinz/vim-startify'
-
-Bundle 'oblitum/rainbow'
-  let g:rainbow_active=1
 
 Bundle 'rhysd/clever-f.vim'
-Bundle 'tomtom/tcomment_vim'
-
-Bundle 'itchyny/lightline.vim'
 
 Bundle 'stephpy/vim-yaml'
 
@@ -175,9 +170,6 @@ Bundle 'digitaltoad/vim-jade'
     au Filetype javascript setlocal ts=2 sts=2 shiftwidth=2
 Bundle 'wavded/vim-stylus'
     au Filetype stylus setlocal ts=2 sts=2 sw=2
-
-Bundle 'plasticboy/vim-markdown'
-
 
 let mapleader=","
 nnoremap ; :
@@ -191,7 +183,6 @@ set smartcase
 set ignorecase
 set whichwrap+=<,>,h,l,[,]
 set showcmd
-set guifont=Source\ Code\ Pro:h14
 
 set undofile
 set undodir=~/.vim/undodir
@@ -253,6 +244,7 @@ set tm=500
 set number
 set rnu
 colorscheme vividchalk
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
 set list
 set listchars=tab:>_,trail:»,extends:>,precedes:<,nbsp:·
