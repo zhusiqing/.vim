@@ -6,10 +6,25 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-scriptease'
+
+Bundle 'Pychimp/vim-luna'
+Bundle 'dart-lang/dart-vim-plugin'
+
+Bundle 'mattn/vim-airline-weather'
+  let g:weather#area='Beijing,China'
+
+Bundle 'vimwiki'
+  let g:vimwiki_list=[{'path': '~/vimwiki', 'path_html': '~/vimwiki/html'}]
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'bkad/CamelCaseMotion'
 
 Bundle 'othree/html5-syntax.vim'
 Bundle 'gorodinskiy/vim-coloresque'
@@ -23,7 +38,9 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/ctrlp.vim'
   let g:ctrlp_working_path_mode='ra'
-  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+  let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/][\.(git|hg|svn)|dist]'
+  \ }
   let g:ctrlp_user_command = {
     \ 'types': {
       \ 1: ['.git', 'cd %s && git ls-files'],
@@ -37,14 +54,8 @@ Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'vimx/YankRing.vim'
 
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'pangloss/vim-javascript'
-  let javascript_conceal=1
 Bundle 'edsono/vim-matchit'
 Bundle 'ujihisa/neco-look'
-
-
-Bundle 'Lokaltog/vim-easymotion'
-  let g:EasyMotion_leader_key='<Leader>'
 
 Bundle 'rking/ag.vim'
 
@@ -243,29 +254,8 @@ set t_vb=
 set tm=500
 set number
 set rnu
-colorscheme vividchalk
+colorscheme luna
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
 set list
 set listchars=tab:>_,trail:»,extends:>,precedes:<,nbsp:·
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
