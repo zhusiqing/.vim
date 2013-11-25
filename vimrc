@@ -6,6 +6,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'farseer90718/vim-taskwarrior'
+
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-fugitive'
@@ -14,11 +16,28 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-scriptease'
 
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'Pychimp/vim-luna'
-Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'wesleyche/SrcExpl'
+Bundle 'sjl/gundo.vim'
+Bundle 'briancarper/gentooish.vim'
 
-Bundle 'mattn/vim-airline-weather'
-  let g:weather#area='Beijing,China'
+Bundle 'terryma/vim-smooth-scroll'
+  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
+  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
+  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
+  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'terryma/vim-expand-region'
+  map <Space> <Plug>(expand_region_expand)
+  map <S-Space> <Plug>(expand_region_shrink)
+
+Bundle 'tybenz/vimdeck'
+Bundle 'Lokaltog/vim-easymotion'
+  let g:EasyMotion_keys='abcdefghijklmnopqrstuvwxyz1234567890'
+  let g:EasyMotion_mapping_f = 'f'
+  let g:EasyMotion_mapping_F = 'F'
 
 Bundle 'vimwiki'
   let g:vimwiki_list=[{'path': '~/vimwiki', 'path_html': '~/vimwiki/html'}]
@@ -33,8 +52,7 @@ Bundle 'leshill/vim-json'
 Bundle 'goatslacker/mango.vim'
 
 Bundle 'bling/vim-airline'
-  let g:airline_powerline_fonts=1
-
+  " let g:airline_powerline_fonts=1
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/ctrlp.vim'
   let g:ctrlp_working_path_mode='ra'
@@ -49,8 +67,7 @@ Bundle 'kien/ctrlp.vim'
     \ 'fallback': 'find %s -type f'
     \ }
 Bundle 'sgur/ctrlp-extensions.vim'
-Bundle 'tacahiroy/ctrlp-funky'
-  let g:ctrlp_extensions = ['yankring', 'cmdline', 'menu', 'funky']
+  let g:ctrlp_extensions = ['yankring', 'cmdline']
 Bundle 'vimx/YankRing.vim'
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -172,8 +189,6 @@ Bundle 'junegunn/vim-easy-align'
 
 Bundle 'mhinz/vim-signify'
 
-Bundle 'rhysd/clever-f.vim'
-
 Bundle 'stephpy/vim-yaml'
 
 Bundle 'digitaltoad/vim-jade'
@@ -185,7 +200,17 @@ Bundle 'wavded/vim-stylus'
 let mapleader=","
 nnoremap ; :
 vmap Q gq
-set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set fileencodings=utf-8 nobomb
+
+set binary
+set noeol
+set gdefault
+
+set exrc
+set secure
+
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
 
 filetype plugin indent on
 
@@ -224,7 +249,12 @@ set magic
 set laststatus=2
 set autoread
 
+autocmd! bufwritepost vimrc source $MYVIMRC
+
+
 set title
+
+set helplang=cn
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -253,9 +283,5 @@ set mouse=a
 set t_vb=
 set tm=500
 set number
-set rnu
 colorscheme luna
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-
-set list
-set listchars=tab:>_,trail:»,extends:>,precedes:<,nbsp:·
+set guifont=Cosmic\ Sans\ Neue\ Mono:h16
