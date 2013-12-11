@@ -9,6 +9,12 @@ Bundle 'gmarik/vundle'
 Bundle 'farseer90718/vim-taskwarrior'
 
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-characterize'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-capslock'
+Bundle 'tpope/vim-rhubarb'
+Bundle 'tpope/vim-pastie'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
@@ -16,24 +22,12 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-scriptease'
 
+Bundle 'Yggdroot/indentLine'
+
 Bundle 'jelera/vim-javascript-syntax'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'Pychimp/vim-luna'
-Bundle 'wesleyche/SrcExpl'
-Bundle 'sjl/gundo.vim'
 Bundle 'briancarper/gentooish.vim'
 
-Bundle 'terryma/vim-smooth-scroll'
-  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
-  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'terryma/vim-expand-region'
-  map <Space> <Plug>(expand_region_expand)
-  map <S-Space> <Plug>(expand_region_shrink)
-
-Bundle 'tybenz/vimdeck'
 Bundle 'Lokaltog/vim-easymotion'
   let g:EasyMotion_keys='abcdefghijklmnopqrstuvwxyz1234567890'
   let g:EasyMotion_mapping_f = 'f'
@@ -46,26 +40,32 @@ Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'bkad/CamelCaseMotion'
 
 Bundle 'othree/html5-syntax.vim'
+Bundle 'othree/eregex.vim'
+Bundle 'othree/vim-javascript-syntax'
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'leshill/vim-json'
 Bundle 'goatslacker/mango.vim'
 
 Bundle 'bling/vim-airline'
-  " let g:airline_powerline_fonts=1
+  let g:airline_powerline_fonts=1
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/ctrlp.vim'
+  let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_working_path_mode='ra'
   let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/][\.(git|hg|svn)|dist]'
+    \ 'dir': '\v[\/][\.(git|hg|svn|cache)|dist]',
+    \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
   let g:ctrlp_user_command = {
     \ 'types': {
       \ 1: ['.git', 'cd %s && git ls-files'],
       \ 2: ['.hg', 'hg --cwd %s locate -I .'],
       \ },
-    \ 'fallback': 'find %s -type f'
+    \ 'fallback': 'ag %s -l --nocolor --hidden -g ""'
     \ }
+
 Bundle 'sgur/ctrlp-extensions.vim'
   let g:ctrlp_extensions = ['yankring', 'cmdline']
 Bundle 'vimx/YankRing.vim'
@@ -204,7 +204,6 @@ set fileencodings=utf-8 nobomb
 
 set binary
 set noeol
-set gdefault
 
 set exrc
 set secure
@@ -254,8 +253,6 @@ autocmd! bufwritepost vimrc source $MYVIMRC
 
 set title
 
-set helplang=cn
-
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -267,6 +264,8 @@ if has("mac") || has("macunix")
   nmap <D-k> <M-k>
   vmap <D-j> <M-j>
   vmap <D-k> <M-k>
+  map <D-1> :tabn 1
+  map <D-2> :tabn 2
 endif
 
 set wildmenu
@@ -283,5 +282,13 @@ set mouse=a
 set t_vb=
 set tm=500
 set number
-colorscheme luna
-set guifont=Cosmic\ Sans\ Neue\ Mono:h16
+
+if has('gui_running')
+  colorscheme luna
+else
+  colorscheme luna-term
+endif
+
+set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+
+cd /Users/zy/Projects/
