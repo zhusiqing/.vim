@@ -6,6 +6,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'google/maktaba.git'
+Bundle 'nelstrom/vim-mac-classic-theme'
+
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'jonathanfilip/lucius'
+
 Bundle 'farseer90718/vim-taskwarrior'
 
 Bundle 'scrooloose/nerdcommenter'
@@ -38,6 +44,20 @@ Bundle 'vimwiki'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'bkad/CamelCaseMotion'
+
+  map w <Plug>CamelCaseMotion_w
+  sunmap w
+  map b <Plug>CamelCaseMotion_b
+  sunmap b
+  map e <Plug>CamelCaseMotion_e
+  sunmap e
+
+  omap iw <Plug>CamelCaseMotion_iw 
+  xmap iw <Plug>CamelCaseMotion_iw 
+  omap ib <Plug>CamelCaseMotion_ib 
+  xmap ib <Plug>CamelCaseMotion_ib 
+  omap ie <Plug>CamelCaseMotion_ie 
+  xmap ie <Plug>CamelCaseMotion_ie
 
 Bundle 'othree/html5-syntax.vim'
 Bundle 'othree/eregex.vim'
@@ -283,11 +303,8 @@ set t_vb=
 set tm=500
 set number
 
-if has('gui_running')
-  colorscheme luna
-else
-  colorscheme luna-term
-endif
+set background=light
+colorscheme lucius
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 
