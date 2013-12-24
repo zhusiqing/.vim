@@ -8,17 +8,14 @@ Bundle 'gmarik/vundle'
 
 Bundle 'google/maktaba.git'
 Bundle 'nelstrom/vim-mac-classic-theme'
+Bundle 'Keithbsmiley/investigate.vim'
+
+Bundle 'scrooloose/syntastic'
 
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'jonathanfilip/lucius'
-
-Bundle 'farseer90718/vim-taskwarrior'
-
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-characterize'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-capslock'
 Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-pastie'
 Bundle 'tpope/vim-sensible'
@@ -39,8 +36,6 @@ Bundle 'Lokaltog/vim-easymotion'
   let g:EasyMotion_mapping_f = 'f'
   let g:EasyMotion_mapping_F = 'F'
 
-Bundle 'vimwiki'
-  let g:vimwiki_list=[{'path': '~/vimwiki', 'path_html': '~/vimwiki/html'}]
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'vim-scripts/argtextobj.vim'
 Bundle 'bkad/CamelCaseMotion'
@@ -52,11 +47,11 @@ Bundle 'bkad/CamelCaseMotion'
   map e <Plug>CamelCaseMotion_e
   sunmap e
 
-  omap iw <Plug>CamelCaseMotion_iw 
-  xmap iw <Plug>CamelCaseMotion_iw 
-  omap ib <Plug>CamelCaseMotion_ib 
-  xmap ib <Plug>CamelCaseMotion_ib 
-  omap ie <Plug>CamelCaseMotion_ie 
+  omap iw <Plug>CamelCaseMotion_iw
+  xmap iw <Plug>CamelCaseMotion_iw
+  omap ib <Plug>CamelCaseMotion_ib
+  xmap ib <Plug>CamelCaseMotion_ib
+  omap ie <Plug>CamelCaseMotion_ie
   xmap ie <Plug>CamelCaseMotion_ie
 
 Bundle 'othree/html5-syntax.vim'
@@ -68,23 +63,31 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'leshill/vim-json'
 Bundle 'goatslacker/mango.vim'
 
-Bundle 'bling/vim-airline'
-  let g:airline_powerline_fonts=1
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/ctrlp.vim'
   let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_working_path_mode='ra'
-  let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/][\.(git|hg|svn|cache)|dist]',
-    \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-  \ }
-  let g:ctrlp_user_command = {
-    \ 'types': {
-      \ 1: ['.git', 'cd %s && git ls-files'],
-      \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-      \ },
-    \ 'fallback': 'ag %s -l --nocolor --hidden -g ""'
-    \ }
+
+  let ctrlp_filter_greps = "".
+      \ "egrep -iv '\\.(" .
+      \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
+      \ ")$' | " .
+      \ "egrep -v '^(\\./)?(" .
+      \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/" .
+      \ ")'"
+
+  let my_ctrlp_git_command = "" .
+      \ "cd %s && git ls-files | " .
+      \ ctrlp_filter_greps
+
+  if has("unix")
+      let my_ctrlp_user_command = "" .
+      \ "find %s '(' -type f -or -type l ')' -maxdepth 15 -not -path '*/\\.*/*' | " .
+      \ ctrlp_filter_greps
+  endif
+
+  let g:ctrlp_user_command = ['.git/', my_ctrlp_git_command, my_ctrlp_user_command]
+
 
 Bundle 'sgur/ctrlp-extensions.vim'
   let g:ctrlp_extensions = ['yankring', 'cmdline']
@@ -204,10 +207,26 @@ Bundle 'Shougo/neosnippet'
 
 Bundle "honza/vim-snippets"
 
+Bundle 'junegunn/goyo.vim'
 Bundle 'junegunn/vim-easy-align'
   vnoremap <silent> <Enter> :EasyAlign<Enter>
+Bundle 'junegunn/vim-github-dashboard'
+  if filereadable("~/.vimsecret")
+    source ~/.vimsecret
+  endif
 
-Bundle 'mhinz/vim-signify'
+Bundle 'thinkpixellab/flatland', {"rtp": "Vim/"}
+Bundle 'daylerees/colour-schemes', {"rtp": "vim-themes/"}
+
+Bundle 'airblade/vim-gitgutter'
+  let g:gitgutter_enabled=1
+Bundle 'junegunn/vim-emoji'
+  silent! if emoji#available()
+    let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+    let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+    let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+    let g:gitgutter_sign_modified_removed = emoji#for('collision')
+  endif
 
 Bundle 'stephpy/vim-yaml'
 
@@ -273,6 +292,14 @@ autocmd! bufwritepost vimrc source $MYVIMRC
 
 set title
 
+" center search
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -286,6 +313,10 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
   map <D-1> :tabn 1
   map <D-2> :tabn 2
+endif
+
+if version >= 730 && has("macunix")
+  set clipboard=unnamed
 endif
 
 set wildmenu
@@ -303,9 +334,26 @@ set t_vb=
 set tm=500
 set number
 
-set background=light
-colorscheme lucius
 
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+colorscheme flatland
+set guifont=Consolas:h14
 
-cd /Users/zy/Projects/
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+nnoremap gl :set operatorfunc=GoogleOperator<cr>g@
+vnoremap gl :<c-u>call GoogleOperator(visualmode())<cr>
+ 
+function! GoogleOperator(type)
+  let saved_register = @@
+  if a:type ==# 'v'
+    normal! `<v`>y
+  elseif a:type ==# 'char'
+    normal! `[v`]y
+  else
+    return
+  endif
+  silent execute "! open " . shellescape("https://www.google.com/search?q=" . @@)
+  let @@ = saved_register
+  redraw!
+endfunction
