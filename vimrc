@@ -9,6 +9,8 @@ Bundle 'gmarik/vundle'
 Bundle 'sjl/gundo.vim'
 
 Bundle 'dyng/ctrlsf.vim'
+Bundle 'jayflo/vim-skip'
+Bundle 'reedes/vim-colors-pencil'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'vimx/ColorSamplerPack'
@@ -54,13 +56,14 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 
-Bundle 'justinmk/vim-sneak'
-
 Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'briancarper/gentooish.vim'
 
 Bundle 'othree/html5-syntax.vim'
+  let g:html_indent_script1 = "inc"
+  let g:html_indent_style1 = "inc"
+  let g:html_indent_inctags = "html,body,head,tbody"
 Bundle 'othree/eregex.vim'
   nnoremap / :M/
   nnoremap ? :M?
@@ -131,6 +134,7 @@ set ignorecase
 set confirm
 set expandtab
 set shiftround
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
@@ -174,12 +178,13 @@ set lazyredraw
 
 if has('gui_running')
   set background=light
-  colorscheme soso
 else
-  colorscheme vividchalk
+  set background=dark
 endif
 
-set guifont=Consolas:h16
+colorscheme pencil
+
+set guifont=Consolas:h12
 
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
