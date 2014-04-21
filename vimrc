@@ -33,7 +33,7 @@ Bundle 'Lokaltog/vim-easymotion'
   map <Leader>e <Plug>(easymotion-e)
 
 
-Bundle 'vimx/ColorSamplerPack'
+Bundle 'gcmt/wildfire.vim'
 
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
@@ -88,22 +88,29 @@ Bundle 'editorconfig/editorconfig-vim'
 Bundle 'thinkpixellab/flatland', {"rtp": "Vim/"}
 
 Bundle 'stephpy/vim-yaml'
+
 Bundle 'digitaltoad/vim-jade'
     au Filetype jade setlocal ts=2 sts=2 sw=2
 Bundle 'wavded/vim-stylus'
-    au Filetype stylus setlocal ts=4 sts=4 sw=4
+    au Filetype stylus setlocal ts=2 sts=2 sw=2
 
 au Filetype javascript setlocal ts=4 sts=4 shiftwidth=4
 
 vmap Q gq
 set fileencodings=utf-8 nobomb
+
 set autoread
+
 set binary
 set noeol
+
 set exrc
 set secure
+
 set list
+
 filetype plugin indent on
+
 syntax enable
 set smartcase
 set ignorecase
@@ -116,9 +123,16 @@ set history=100
 set undolevels=100
 set undoreload=100
 
+set ttyfast
+
 set hlsearch
 set incsearch
 set ignorecase
+
+if has('gui_running')
+  set guioptions-=Tm
+  set guioptions-=r
+end
 
 set confirm
 set expandtab
