@@ -8,44 +8,36 @@ Bundle 'gmarik/vundle'
 
 Bundle 'sjl/gundo.vim'
 
-Bundle 'dyng/ctrlsf.vim'
-Bundle 'jayflo/vim-skip'
-Bundle 'reedes/vim-colors-pencil'
+Bundle 'bling/vim-airline'
+  let g:airline_powerline_fonts = 1
 
-Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-easymotion'
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+  " Bi-directional find motion
+  " Jump to anywhere you want with minimal keystrokes, with just one key binding.
+  " `s{char}{label}`
+  " nmap s <Plug>(easymotion-s)
+  " or
+  " `s{char}{char}{label}`
+  " Need one more keystroke, but on average, it may be more comfortable.
+  nmap s <Plug>(easymotion-s2)
+
+  " Turn on case sensitive feature
+  let g:EasyMotion_smartcase = 1
+
+  " JK motions: Line motions
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+  map <Leader>b <Plug>(easymotion-b)
+  map <Leader>w <Plug>(easymotion-w)
+  map <Leader>e <Plug>(easymotion-e)
+
+
 Bundle 'vimx/ColorSamplerPack'
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'itchyny/lightline.vim'
-  let g:lightline = {
-        \ 'component': {
-          \ 'readonly': '%{&readonly?"x":""}',
-        \ },
-        \ 'separator': { 'left': '', 'right': ''},
-        \ 'subsepartor': { 'left': '|', 'right': '|'}
-        \}
-
-
-Bundle 'ervandew/supertab'
-  let g:SuperTabSetDefaultCompletionType="context"
-  let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-  let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-  let g:SuperTabContextDiscoverDiscovery =
-      \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-
-Bundle 'itchyny/calendar.vim'
-  let g:calendar_frame='unicode'
-  let g:calendar_google_calendar=1
-  let g:calendar_google_task=1
-  let g:calendar_first_day='sunday'
-Bundle 'terryma/vim-multiple-cursors'
-
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
+
 Bundle 'tpope/vim-characterize'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-sensible'
@@ -55,66 +47,63 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-ragtag'
+
+Bundle 'tomasr/molokai'
+
+Bundle 'mustache/vim-mustache-handlebars'
+
+Bundle 'mhinz/vim-startify'
+    let g:startify_custom_header = [
+                \'        ᕙ(`▽´)ᕗ  ٩(^‿^)۶',
+                \'',
+                \'',
+                \ ]
 
 Bundle 'kchmck/vim-coffee-script'
-
-Bundle 'briancarper/gentooish.vim'
 
 Bundle 'othree/html5-syntax.vim'
   let g:html_indent_script1 = "inc"
   let g:html_indent_style1 = "inc"
   let g:html_indent_inctags = "html,body,head,tbody"
-Bundle 'othree/eregex.vim'
-  nnoremap / :M/
-  nnoremap ? :M?
 Bundle 'othree/vim-javascript-syntax'
 Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'leshill/vim-json'
+Bundle 'ntpeters/vim-better-whitespace'
 
 Bundle 'kien/ctrlp.vim'
   let g:ctrlp_map='<C-p>'
   let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_working_path_mode='ra'
+  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
   let g:ctrlp_max_depth=10
   let g:ctrlp_max_file=500
   let g:ctrlp_max_history=&history
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 Bundle 'edsono/vim-matchit'
 
-Bundle 'rking/ag.vim'
-
 Bundle 'editorconfig/editorconfig-vim'
-
 Bundle 'thinkpixellab/flatland', {"rtp": "Vim/"}
-Bundle 'w0ng/vim-hybrid'
-Bundle 'daylerees/colour-schemes', {"rtp": "vim-themes/"}
 
 Bundle 'stephpy/vim-yaml'
-
 Bundle 'digitaltoad/vim-jade'
     au Filetype jade setlocal ts=2 sts=2 sw=2
-    au Filetype javascript setlocal ts=2 sts=2 shiftwidth=2
 Bundle 'wavded/vim-stylus'
-    au Filetype stylus setlocal ts=2 sts=2 sw=2
+    au Filetype stylus setlocal ts=4 sts=4 sw=4
+
+au Filetype javascript setlocal ts=4 sts=4 shiftwidth=4
 
 vmap Q gq
 set fileencodings=utf-8 nobomb
-
 set autoread
-
 set binary
 set noeol
-
 set exrc
 set secure
-
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
-
 filetype plugin indent on
-
 syntax enable
 set smartcase
 set ignorecase
@@ -176,44 +165,6 @@ set tm=500
 set number
 set lazyredraw
 
-if has('gui_running')
-  set background=light
-else
-  set background=dark
-endif
+colorscheme molokai
 
-colorscheme pencil
-
-set guifont=Consolas:h12
-
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-nnoremap gl :set operatorfunc=GoogleOperator<cr>g@
-vnoremap gl :<c-u>call GoogleOperator(visualmode())<cr>
- 
-function! GoogleOperator(type)
-  let saved_register = @@
-  if a:type ==# 'v'
-    normal! `<v`>y
-  elseif a:type ==# 'char'
-    normal! `[v`]y
-  else
-    return
-  endif
-  silent execute "! open " . shellescape("https://www.google.com/search?q=" . @@)
-  let @@ = saved_register
-  redraw!
-endfunction
-
-
-function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  endif
-endfunction
-au BufEnter /* call LoadCscope()
+set guifont=Source\ Code\ Pro\ for\ Powerline:h16
