@@ -7,6 +7,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'sjl/gundo.vim'
+Bundle 'reedes/vim-colors-pencil'
+Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'bling/vim-airline'
   let g:airline_powerline_fonts = 1
@@ -179,6 +181,7 @@ set tm=500
 set number
 set lazyredraw
 
-colorscheme molokai
+colorscheme pencil
+set background=light
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
