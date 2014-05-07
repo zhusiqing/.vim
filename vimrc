@@ -8,6 +8,17 @@ Bundle 'gmarik/vundle'
 
 Bundle 'sjl/gundo.vim'
 Bundle 'reedes/vim-colors-pencil'
+Bundle 'fatih/vim-go'
+  au FileType go nmap <Leader>i <Plug>(go-import)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap gd <Plug>(go-def)
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 Bundle 'Valloric/YouCompleteMe'
 
 Bundle 'bling/vim-airline'
@@ -64,10 +75,9 @@ Bundle 'mhinz/vim-startify'
 
 Bundle 'kchmck/vim-coffee-script'
 
-Bundle 'othree/html5-syntax.vim'
-  let g:html_indent_script1 = "inc"
-  let g:html_indent_style1 = "inc"
-  let g:html_indent_inctags = "html,body,head,tbody"
+Bundle 'othree/html5.vim'
+Bundle "ekalinin/Dockerfile.vim"
+
 Bundle 'othree/vim-javascript-syntax'
 Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'hail2u/vim-css3-syntax'
