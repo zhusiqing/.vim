@@ -44,6 +44,7 @@ Bundle 'Lokaltog/vim-easymotion'
   map <Leader>w <Plug>(easymotion-w)
   map <Leader>e <Plug>(easymotion-e)
 
+Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/neocomplete.vim'
   "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
   " Disable AutoComplPop.
