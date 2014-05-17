@@ -20,8 +20,34 @@ Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-Bundle 'Shougo/neocomplete.vim'
+Bundle 'mhallendal/spacedust-theme', {"rtp": "Vim/"}
 
+Bundle 'bling/vim-airline'
+  let g:airline_powerline_fonts = 1
+
+Bundle 'Lokaltog/vim-easymotion'
+  let g:EasyMotion_do_mapping = 0 " Disable default mappings
+  " Bi-directional find motion
+  " Jump to anywhere you want with minimal keystrokes, with just one key binding.
+  " `s{char}{label}`
+  " nmap s <Plug>(easymotion-s)
+  " or
+  " `s{char}{char}{label}`
+  " Need one more keystroke, but on average, it may be more comfortable.
+  nmap s <Plug>(easymotion-s2)
+
+  " Turn on case sensitive feature
+  let g:EasyMotion_smartcase = 1
+
+  " JK motions: Line motions
+  map <Leader>j <Plug>(easymotion-j)
+  map <Leader>k <Plug>(easymotion-k)
+  map <Leader>b <Plug>(easymotion-b)
+  map <Leader>w <Plug>(easymotion-w)
+  map <Leader>e <Plug>(easymotion-e)
+
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/neocomplete.vim'
   "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
@@ -105,38 +131,6 @@ Bundle 'Shougo/neocomplete.vim'
   " For perlomni.vim setting.
   " https://github.com/c9s/perlomni.vim
   let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-
-
-
-
-
-Bundle 'mhallendal/spacedust-theme', {"rtp": "Vim/"}
-
-Bundle 'bling/vim-airline'
-  let g:airline_powerline_fonts = 1
-
-Bundle 'Lokaltog/vim-easymotion'
-  let g:EasyMotion_do_mapping = 0 " Disable default mappings
-  " Bi-directional find motion
-  " Jump to anywhere you want with minimal keystrokes, with just one key binding.
-  " `s{char}{label}`
-  " nmap s <Plug>(easymotion-s)
-  " or
-  " `s{char}{char}{label}`
-  " Need one more keystroke, but on average, it may be more comfortable.
-  nmap s <Plug>(easymotion-s2)
-
-  " Turn on case sensitive feature
-  let g:EasyMotion_smartcase = 1
-
-  " JK motions: Line motions
-  map <Leader>j <Plug>(easymotion-j)
-  map <Leader>k <Plug>(easymotion-k)
-  map <Leader>b <Plug>(easymotion-b)
-  map <Leader>w <Plug>(easymotion-w)
-  map <Leader>e <Plug>(easymotion-e)
-
 
 Bundle 'gcmt/wildfire.vim'
 
