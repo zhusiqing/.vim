@@ -22,7 +22,8 @@ Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-Bundle 'mhallendal/spacedust-theme', {'rtp': 'Vim'}
+Bundle 'mhallendal/spacedust-theme', {"rtp": "Vim/"}
+
 Bundle 'bling/vim-airline'
   let g:airline_powerline_fonts = 1
 
@@ -140,7 +141,6 @@ Bundle 'Shougo/neocomplete.vim'
 Bundle 'gcmt/wildfire.vim'
 
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
 
 Bundle 'tpope/vim-characterize'
 Bundle 'tpope/vim-git'
@@ -152,10 +152,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-ragtag'
-
-Bundle 'tomasr/molokai'
-
-Bundle 'mustache/vim-mustache-handlebars'
 
 Bundle 'mhinz/vim-startify'
     let g:startify_custom_header = [
@@ -169,7 +165,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle "ekalinin/Dockerfile.vim"
 
-Bundle 'othree/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
+  let g:javascript_conceal=1
 Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'leshill/vim-json'
@@ -261,11 +258,6 @@ set autoread
 autocmd! bufwritepost vimrc source $MYVIMRC
 set title
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 set wildmenu
 set t_Co=256
 set noswapfile
