@@ -6,8 +6,10 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+
 Bundle 'sjl/gundo.vim'
 Bundle 'reedes/vim-colors-pencil'
+Bundle 'drmingdrmer/xptemplate'
 Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>i <Plug>(go-import)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -20,6 +22,7 @@ Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
   au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
+Bundle 'mhallendal/spacedust-theme', {'rtp': 'Vim'}
 Bundle 'bling/vim-airline'
   let g:airline_powerline_fonts = 1
 
@@ -45,6 +48,10 @@ Bundle 'Lokaltog/vim-easymotion'
   map <Leader>e <Plug>(easymotion-e)
 
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
+
+
+
 Bundle 'Shougo/neocomplete.vim'
   "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
   " Disable AutoComplPop.
@@ -275,7 +282,7 @@ set tm=500
 set number
 set lazyredraw
 
-colorscheme pencil
-set background=light
+colorscheme Spacedust
+set background=dark
 
 set guifont=Source\ Code\ Pro\ for\ Powerline:h16
