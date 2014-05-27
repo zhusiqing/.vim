@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+
 Bundle 'sjl/gundo.vim'
 Bundle 'reedes/vim-colors-pencil'
 Bundle 'junegunn/vim-fnr'
@@ -13,6 +14,7 @@ Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'elzr/vim-json'
 Bundle 'wellle/targets.vim'
 Bundle 'vimwiki/vimwiki'
+Bundle 'drmingdrmer/xptemplate'
 Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>i <Plug>(go-import)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
