@@ -8,6 +8,11 @@ Bundle 'gmarik/vundle'
 
 Bundle 'sjl/gundo.vim'
 Bundle 'reedes/vim-colors-pencil'
+Bundle 'junegunn/vim-fnr'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'elzr/vim-json'
+Bundle 'wellle/targets.vim'
+Bundle 'vimwiki/vimwiki'
 Bundle 'fatih/vim-go'
   au FileType go nmap <Leader>i <Plug>(go-import)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -47,6 +52,7 @@ Bundle 'Lokaltog/vim-easymotion'
   map <Leader>e <Plug>(easymotion-e)
 
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/neocomplete.vim'
   "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
   " Disable AutoComplPop.
