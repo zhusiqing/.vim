@@ -1,32 +1,39 @@
-call plug#begin('~/.vim/plugged')
+set nocompatible
+filetype off
 
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/vim-easy-align'
-  vmap <Enter> <Plug>(EasyAlign)
-Plug 'wellle/targets.vim'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plug 'ervandew/supertab'
-Plug 'drmingdrmer/xptemplate'
-  let g:xptemplate_key='<Tab>'
-Plug 'vimx/YankRing.vim'
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'junegunn/seoul256.vim'
+Plugin 'junegunn/vim-easy-align'
+  vmap <Enter> <Plugin>(EasyAlign)
+Plugin 'wellle/targets.vim'
+
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'idanarye/vim-merginal'
+Plugin 'vimx/YankRing.vim'
   let g:yankring_replace_n_pkey = '<C-j>'
   let g:yankring_replace_n_nkey = '<C-k>'
-Plug 'bling/vim-airline'
+Plugin 'bling/vim-airline'
   let g:airline_powerline_fonts = 0
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vividchalk'
-Plug 'tpope/vim-markdown'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-ragtag'
-Plug 'ntpeters/vim-better-whitespace'
+Plugin 'zhuangya/vim-csharp'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-characterize'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-ragtag'
+Plugin 'ntpeters/vim-better-whitespace'
   autocmd FileType js,css,html,jsp,cshtml autocmd BufWritePre <buffer> StripWhitespace
-Plug 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
   let g:ctrlp_map='<C-p>'
   let g:ctrlp_clear_cache_on_exit=0
   let g:ctrlp_working_path_mode='ra'
@@ -36,22 +43,20 @@ Plug 'kien/ctrlp.vim'
   let g:ctrlp_max_history=&history
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-Plug 'digitaltoad/vim-jade'
+Plugin 'digitaltoad/vim-jade'
     au Filetype jade setlocal ts=2 sts=2 sw=2
-Plug 'wavded/vim-stylus'
+Plugin 'wavded/vim-stylus'
     au Filetype stylus setlocal ts=2 sts=2 sw=2
 
 
-Plug 'mhinz/vim-startify'
+Plugin 'mhinz/vim-startify'
     let g:startify_custom_header = [
                 \'        ᕙ(`▽´)ᕗ  ٩(^‿^)۶',
                 \'',
                 \'',
                 \ ]
 
-
-
-call plug#end()
+call vundle#end()
 
 colorscheme seoul256
 set fileencodings=utf-8 nobomb
@@ -66,9 +71,8 @@ set whichwrap+=<,>,h,l,[,]
 
 set undofile
 set undodir=~/.vim/undodir
-set history=100
-set undolevels=100
-set undoreload=100
+set undolevels=100000
+set undoreload=100000
 
 set ttyfast
 
