@@ -4,7 +4,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'vimx/vim-auto-plug'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'justinmk/vim-dirvish'
 Plug 'tweekmonster/braceless.vim'
+
+autocmd FileType python BracelessEnable +indent
+autocmd FileType javascript BracelessEnable +indent +highlight
+autocmd FileType haml,yaml,coffee BracelessEnable +indent +fold +highlight
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
