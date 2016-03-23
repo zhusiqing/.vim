@@ -5,11 +5,8 @@ Plug 'vimx/vim-auto-plug'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-dirvish'
-Plug 'tweekmonster/braceless.vim'
-
-autocmd FileType python BracelessEnable +indent
-autocmd FileType javascript BracelessEnable +indent +highlight
-autocmd FileType haml,yaml,coffee BracelessEnable +indent +fold +highlight
+Plug 'othree/html5.vim'
+Plug 'cesardeazevedo/Fx-ColorScheme'
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -32,6 +29,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'CodeFalling/fcitx-vim-osx'
+
+Plug 'rizzatti/dash.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_use_caching = 1
@@ -58,6 +57,8 @@ call plug#end()
 filetype plugin indent on    " required
 
 syntax on
+set background=dark
+colorscheme fx
 set nu
 set sts=2
 set ts=2
@@ -90,6 +91,7 @@ set noswapfile
 nnoremap gb :ls<CR>:b
 set background=dark
 set guifont=FiraCode-Regular:h12
+
 
 if has("gui_macvim")
   set macligatures
