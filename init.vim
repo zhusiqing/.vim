@@ -91,7 +91,8 @@ set noswapfile
 nnoremap gb :ls<CR>:b
 set background=dark
 set guifont=FiraCode-Regular:h12
-
+" Make space more useful
+nnoremap <space> za
 
 if has("gui_macvim")
   set macligatures
