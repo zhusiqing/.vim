@@ -7,30 +7,28 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
 Plug 'cesardeazevedo/Fx-ColorScheme'
-
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer --tern-completer
-  endif
-endfunction
-
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-  let g:ycm_min_num_of_chars_for_completion = 2
-  let g:ycm_auto_trigger = 1
-  let g:ycm_always_populate_location_list = 1
-  let g:ycm_add_preview_to_completeopt = 1
-  let g:ycm_autoclose_preview_window_after_completion = 1
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
+Plug 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/context_filetype.vim'
+
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-classpath'
+Plug 'guns/vim-clojure-static'
+
+Plug 'vim-jp/vital.vim'
+
+Plug 'skammer/vim-css-color'
+Plug '~/Projects/colorful.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'CodeFalling/fcitx-vim-osx'
-
-Plug 'rizzatti/dash.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_use_caching = 1
@@ -94,12 +92,14 @@ set guifont=FiraCode-Regular:h12
 " Make space more useful
 nnoremap <space> za
 
-if has("gui_macvim")
-  set macligatures
-endif
+" if has("gui_macvim")
+"   set macligatures
+" endif
 
 " fix for `crontab -e`
 set backupskip=/tmp/*,/private/tmp/*
 
 " set up file type detection
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
+
+autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
