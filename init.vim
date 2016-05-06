@@ -8,12 +8,20 @@ Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
 Plug 'cesardeazevedo/Fx-ColorScheme'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'rking/ag.vim'
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
 
 Plug 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
+
 Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/context_filetype.vim'
 
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
 Plug 'tpope/vim-dispatch'
@@ -87,6 +95,7 @@ set completeopt-=preview
 set nobackup
 set noswapfile
 nnoremap gb :ls<CR>:b
+set hlsearch
 set background=dark
 set guifont=FiraCode-Regular:h12
 " Make space more useful
@@ -103,3 +112,5 @@ set backupskip=/tmp/*,/private/tmp/*
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
+
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
