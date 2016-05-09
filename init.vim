@@ -13,6 +13,8 @@ Plug 'rking/ag.vim'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'SirVer/ultisnips'
+Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -84,12 +86,8 @@ set shiftwidth=2
 set shiftwidth=2
 set smartcase
 set so=7
-set softtabstop=2
 set sts=2
-set t_Co=256
-set tabstop=2
 set ts=2
-set ttyfast
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=100000
@@ -106,5 +104,4 @@ autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
 
 syntax on
-colorscheme fx
-
+colorscheme dracula
