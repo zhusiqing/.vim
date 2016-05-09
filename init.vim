@@ -10,6 +10,10 @@ Plug 'cesardeazevedo/Fx-ColorScheme'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rking/ag.vim'
 
+Plug 'mbbill/undotree'
+Plug 'mhinz/vim-startify'
+Plug 'SirVer/ultisnips'
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -56,61 +60,51 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
-
 Plug 'chrisbra/vim-diff-enhanced'
 
 call plug#end()
 filetype plugin indent on    " required
 
-syntax on
-set background=dark
-colorscheme fx
-set nu
-set sts=2
-set ts=2
-set shiftwidth=2
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set so=7
-set number
-set mouse=a
-set nocursorline
-set expandtab
-set undofile
-set undodir=~/.vim/undodir
-set undolevels=100000
-set undoreload=100000
-set ttyfast
-set smartcase
-set ignorecase
-set whichwrap+=<,>,h,l,[,]
-set wrap
-set magic
-set lazyredraw
 set autoread
-set ttyfast
-set t_Co=256
+set background=dark
+set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set completeopt-=preview
+set cursorline
+set expandtab
+set guifont=FiraCode-Regular:h12
+set hlsearch
+set ignorecase
+set lazyredraw
+set magic
+set mouse=a
 set nobackup
 set noswapfile
+set number
+set shiftwidth=2
+set shiftwidth=2
+set smartcase
+set so=7
+set softtabstop=2
+set sts=2
+set t_Co=256
+set tabstop=2
+set ts=2
+set ttyfast
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=100000
+set undoreload=100000
+set whichwrap+=<,>,h,l,[,]
+set wrap
 nnoremap gb :ls<CR>:b
-set hlsearch
-set background=dark
-set guifont=FiraCode-Regular:h12
-" Make space more useful
 nnoremap <space> za
-
-" if has("gui_macvim")
-"   set macligatures
-" endif
-
-" fix for `crontab -e`
-set backupskip=/tmp/*,/private/tmp/*
+" Make space more useful
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " set up file type detection
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
-
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
 
-nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+syntax on
+colorscheme fx
+
