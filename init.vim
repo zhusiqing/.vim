@@ -6,27 +6,29 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
-Plug 'cesardeazevedo/Fx-ColorScheme'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rking/ag.vim'
 
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'SirVer/ultisnips'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-
+Plug 'isRuslan/vim-es6'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 
+Plug 'SirVer/ultisnips'
+  let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
+Plug 'honza/vim-snippets'
+
 Plug 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
 
 Plug 'Shougo/neopairs.vim'
-Plug 'Shougo/context_filetype.vim'
 
 Plug 'airblade/vim-gitgutter'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
@@ -37,10 +39,10 @@ Plug 'guns/vim-clojure-static'
 
 Plug 'vim-jp/vital.vim'
 
-Plug 'skammer/vim-css-color'
 Plug '~/Projects/colorful.vim'
 
 Plug 'editorconfig/editorconfig-vim'
+  let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'CodeFalling/fcitx-vim-osx'
 
