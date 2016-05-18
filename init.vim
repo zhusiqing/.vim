@@ -1,4 +1,7 @@
 set rtp+=~/.vim/plugged/vim-auto-plug
+
+let python_host_prog = "python3"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'vimx/vim-auto-plug'
