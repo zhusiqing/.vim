@@ -11,7 +11,11 @@ Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rking/ag.vim'
+Plug 'FooSoft/vim-argwrap'
+  nnoremap <silent> <leader>a :ArgWrap<cr>
 
+Plug 'scrooloose/syntastic'
+  let g:syntastic_javascript_checkers = ["eslint"]
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
@@ -39,6 +43,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-classpath'
 Plug 'guns/vim-clojure-static'
+
+Plug 'reedes/vim-colors-pencil'
 
 Plug 'vim-jp/vital.vim'
 
@@ -73,7 +79,6 @@ call plug#end()
 filetype plugin indent on    " required
 
 set autoread
-set background=dark
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set completeopt-=preview
 set cursorline
@@ -109,4 +114,5 @@ autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
 
 syntax on
-colorscheme dracula
+set background=light
+colorscheme pencil
