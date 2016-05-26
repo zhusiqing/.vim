@@ -14,12 +14,16 @@ Plug 'rking/ag.vim'
 Plug 'FooSoft/vim-argwrap'
   nnoremap <silent> <leader>a :ArgWrap<cr>
 
+Plug 'kshenoy/vim-signature'
 Plug 'scrooloose/syntastic'
   let g:syntastic_javascript_checkers = ["eslint"]
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'isRuslan/vim-es6'
+
+Plug 'kana/vim-textobj-user'
+Plug 'poetic/vim-textobj-javascript'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -42,6 +46,8 @@ Plug 'tpope/vim-salve'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-classpath'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 Plug 'guns/vim-clojure-static'
 
 Plug 'reedes/vim-colors-pencil'
@@ -112,6 +118,18 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 " set up file type detection
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
+
+function! s:nice_next(cmd)
+  let view = winsaveview()
+  execute "normal! " . a:cmd
+  if view.topline != winsaveview().topline
+    normal! zz
+  endif
+endfunction
+
+nnoremap <silent> n :call <SID>nice_next('n')<cr>
+nnoremap <silent> N :call <SID>nice_next('N')<cr>
+
 
 syntax on
 set background=light
