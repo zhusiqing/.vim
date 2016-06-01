@@ -132,5 +132,5 @@ nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 
 syntax on
-set background=light
+set background=dark
 colorscheme pencil
