@@ -19,7 +19,7 @@ Plug 'scrooloose/syntastic'
   let g:syntastic_javascript_checkers = ["eslint"]
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'dracula/vim'
 Plug 'isRuslan/vim-es6'
 
 Plug 'kana/vim-textobj-user'
