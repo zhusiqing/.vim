@@ -22,8 +22,15 @@ Plug 'mhinz/vim-startify'
 Plug 'dracula/vim'
 Plug 'isRuslan/vim-es6'
 
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
+  map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
+  map <leader>x: VimuxPromptCommand<CR>
+
 Plug 'kana/vim-textobj-user'
 Plug 'poetic/vim-textobj-javascript'
+
+Plug 'rkitover/vimpager'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
