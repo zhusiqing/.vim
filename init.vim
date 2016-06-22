@@ -10,9 +10,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'rking/ag.vim'
 Plug 'FooSoft/vim-argwrap'
   nnoremap <silent> <leader>a :ArgWrap<cr>
+Plug 'mileszs/ack.vim'
+  let g:ackprg='ag --vimgrep --smart-case'
+  cnoreabbrev ag Ack
+  cnoreabbrev aG Ack
+  cnoreabbrev Ag Ack
+  cnoreabbrev AG Ack
 
 Plug 'kshenoy/vim-signature'
 Plug 'scrooloose/syntastic'
@@ -21,11 +26,6 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'dracula/vim'
 Plug 'isRuslan/vim-es6'
-
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
-  map <leader>nt :call VimuxRunCommand("clear; npm test")<CR>
-  map <leader>x: VimuxPromptCommand<CR>
 
 Plug 'kana/vim-textobj-user'
 Plug 'poetic/vim-textobj-javascript'
