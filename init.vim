@@ -9,6 +9,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'justinmk/vim-dirvish'
 Plug 'othree/html5.vim'
+Plug 'wincent/loupe'
+Plug 'posva/vim-vue'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'FooSoft/vim-argwrap'
   nnoremap <silent> <leader>a :ArgWrap<cr>
@@ -30,8 +32,6 @@ Plug 'isRuslan/vim-es6'
 Plug 'kana/vim-textobj-user'
 Plug 'poetic/vim-textobj-javascript'
 
-Plug 'rkitover/vimpager'
-
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -46,6 +46,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/neopairs.vim'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'rhysd/vim-grammarous'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-fireplace'
@@ -91,6 +92,7 @@ Plug 'chrisbra/vim-diff-enhanced'
 call plug#end()
 filetype plugin indent on    " required
 
+set clipboard=unnamed
 set autoread
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set completeopt-=preview
