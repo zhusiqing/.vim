@@ -7,6 +7,7 @@ call dein#add('tpope/vim-sensible')
 
 call dein#add('CodeFalling/fcitx-vim-osx')
 
+call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 
 call dein#add('Shougo/deoplete.nvim')
@@ -82,3 +83,6 @@ endfunction
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
 
+
+""" vimfiler
+  let g:vimfiler_as_default_explorer = 1
