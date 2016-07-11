@@ -1,6 +1,8 @@
 .DS_Store
-.netrwhist
 .init.vim-rplugin~
+.netrwhist
+.tmp/
 autoload/plug.vim
 cache/
+dein/
 plugged/
