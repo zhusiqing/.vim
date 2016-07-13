@@ -10,6 +10,10 @@ call dein#add('CodeFalling/fcitx-vim-osx')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 
+call dein#add('Shougo/neossh.vim')
+
+call dein#add('vim-scripts/po.vim--gray')
+
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/neopairs.vim')
 call dein#add('SirVer/ultisnips')
