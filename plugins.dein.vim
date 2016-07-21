@@ -15,9 +15,12 @@ call dein#add('Shougo/neossh.vim')
 call dein#add('vim-scripts/po.vim--gray')
 
 call dein#add('Shougo/deoplete.nvim')
+call dein#add('carlitux/deoplete-ternjs')
 call dein#add('Shougo/neopairs.vim')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
+
+call dein#add('nicklasos/vim-jsx-riot')
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('mhinz/vim-startify')
@@ -89,6 +92,10 @@ endfunction
 
 """ deoplete
   let g:deoplete#enable_at_startup = 1
+
+  let g:tern_request_timeout = 1
+  let g:tern#command = ["tern"]
+  let g:tern#arguments = ["--persistent"]
 
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
