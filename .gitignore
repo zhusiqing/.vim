@@ -4,6 +4,7 @@
 .tmp/
 autoload/plug.vim
 cache/
+custom.vim
 dein/
-plugged/
 installer.sh
+plugged/

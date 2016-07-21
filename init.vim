@@ -37,3 +37,5 @@ autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
 
 syntax on
+
+source $HOME/.vim/custom.vim

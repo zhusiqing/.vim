@@ -16,8 +16,8 @@ call dein#add('vim-scripts/po.vim--gray')
 
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('carlitux/deoplete-ternjs')
-call dein#add('Shougo/neopairs.vim')
 call dein#add('SirVer/ultisnips')
+call dein#add('jiangmiao/auto-pairs')
 call dein#add('honza/vim-snippets')
 
 call dein#add('nicklasos/vim-jsx-riot')
