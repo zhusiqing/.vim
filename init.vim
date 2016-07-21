@@ -20,7 +20,6 @@ set nobackup
 set noswapfile
 set number
 set shiftwidth=2
-set shiftwidth=2
 set smartcase
 set softtabstop=2
 set tabstop=2

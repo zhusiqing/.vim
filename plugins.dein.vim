@@ -25,6 +25,12 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('chrisbra/vim-diff-enhanced')
 call dein#add('ntpeters/vim-better-whitespace')
 
+call dein#add('rakr/vim-one')
+call dein#add('junegunn/vim-peekaboo')
+call dein#add('alvan/vim-closetag')
+call dein#add('sickill/vim-pasta')
+call dein#add('tpope/vim-surround')
+
 call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('editorconfig/editorconfig-vim')
@@ -87,6 +93,51 @@ endfunction
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
 
+""" unite.vim
+let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+let g:unite_source_menu_menus.git = {
+    \ 'description' : '            gestionar repositorios git
+        \                            ⌘ [espacio]g',
+    \}
+let g:unite_source_menu_menus.git.command_candidates = [
+    \['▷ tig                                                        ⌘ ,gt',
+        \'normal ,gt'],
+    \['▷ git status       (Fugitive)                                ⌘ ,gs',
+        \'Gstatus'],
+    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
+        \'Gdiff'],
+    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
+        \'Gcommit'],
+    \['▷ git log          (Fugitive)                                ⌘ ,gl',
+        \'exe "silent Glog | Unite quickfix"'],
+    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
+        \'Gblame'],
+    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
+        \'Gwrite'],
+    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
+        \'Gread'],
+    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
+        \'Gremove'],
+    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
+        \'exe "Gmove " input("destino: ")'],
+    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
+        \'Git! push'],
+    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
+        \'Git! pull'],
+    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
+        \'exe "Git! " input("comando git: ")'],
+    \['▷ git cd           (Fugitive)',
+        \'Gcd'],
+    \]
+nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 
 """ vimfiler
   let g:vimfiler_as_default_explorer = 1
+
+""" one theme
+  let g:one_allow_italics = 1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+  colorscheme one
+
+""" airline
+  let g:airline_theme = 'one'

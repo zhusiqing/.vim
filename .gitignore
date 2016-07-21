@@ -6,3 +6,4 @@ autoload/plug.vim
 cache/
 dein/
 plugged/
+installer.sh
