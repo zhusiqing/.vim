@@ -29,12 +29,15 @@ set undolevels=100000
 set undoreload=100000
 set whichwrap+=<,>,h,l,[,]
 set wrap
+set cursorline
 
 nnoremap gb :ls<CR>:b
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
+autocmd FileType javascript setlocal suffixesadd+=.js path+=$PWD/node_modules
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 

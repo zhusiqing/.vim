@@ -2,6 +2,7 @@ set runtimepath^=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim/
 
 call dein#begin(expand('$HOME/.vim/dein'))
 call dein#add('Shougo/dein.vim')
+call dein#add('haya14busa/dein-command.vim')
 
 call dein#add('tpope/vim-sensible')
 
@@ -9,6 +10,7 @@ call dein#add('CodeFalling/fcitx-vim-osx')
 
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
+call dein#add('Shougo/neomru.vim')
 
 call dein#add('Shougo/neossh.vim')
 
@@ -51,6 +53,7 @@ call dein#add('tpope/vim-unimpaired')
 
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
+call dein#add('hail2u/vim-css3-syntax')
 
 call dein#end()
 
@@ -101,42 +104,14 @@ endfunction
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
 
 """ unite.vim
-let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
-let g:unite_source_menu_menus.git = {
-    \ 'description' : '            gestionar repositorios git
-        \                            ⌘ [espacio]g',
-    \}
-let g:unite_source_menu_menus.git.command_candidates = [
-    \['▷ tig                                                        ⌘ ,gt',
-        \'normal ,gt'],
-    \['▷ git status       (Fugitive)                                ⌘ ,gs',
-        \'Gstatus'],
-    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
-        \'Gdiff'],
-    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
-        \'Gcommit'],
-    \['▷ git log          (Fugitive)                                ⌘ ,gl',
-        \'exe "silent Glog | Unite quickfix"'],
-    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
-        \'Gblame'],
-    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
-        \'Gwrite'],
-    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
-        \'Gread'],
-    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
-        \'Gremove'],
-    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
-        \'exe "Gmove " input("destino: ")'],
-    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
-        \'Git! push'],
-    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
-        \'Git! pull'],
-    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
-        \'exe "Git! " input("comando git: ")'],
-    \['▷ git cd           (Fugitive)',
-        \'Gcd'],
-    \]
-nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
+  call unite#custom#profile('default', 'context', {
+  \   'start_insert': 1,
+  \   'winheight': 20,
+  \   'direction': 'botright',
+  \ })
+
+  nnoremap <leader>f :<C-u>Unite -start-insert file/async neomru/file tab<cr>
+  nnoremap <leader>s :<C-u>Unite -start-insert grep/git:/<cr>
 
 """ vimfiler
   let g:vimfiler_as_default_explorer = 1
@@ -148,3 +123,6 @@ nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 
 """ airline
   let g:airline_theme = 'one'
+
+""" css3 syntax
+  autocmd FileType css setlocal iskeyword+=-
