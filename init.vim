@@ -5,6 +5,7 @@ let python_host_prog = "python3"
 
 source $HOME/.vim/plugins.dein.vim
 
+set autochdir
 set autoread
 set background=dark
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`

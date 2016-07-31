@@ -11,6 +11,7 @@ call dein#add('CodeFalling/fcitx-vim-osx')
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
 call dein#add('Shougo/neomru.vim')
+call dein#add('ujihisa/unite-colorscheme')
 
 call dein#add('Shougo/neossh.vim')
 
@@ -35,8 +36,6 @@ call dein#add('junegunn/vim-peekaboo')
 call dein#add('alvan/vim-closetag')
 call dein#add('sickill/vim-pasta')
 call dein#add('tpope/vim-surround')
-
-call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('isRuslan/vim-es6', {'on_ft': 'javascript'})
@@ -73,23 +72,6 @@ endfunction
 "
 """"
 
-""" ctrlp
-  let g:ctrlp_use_caching = 1
-  let g:ctrlp_clear_cache_on_exit = 0
-  let g:ctrlp_cache_dir = '$HOME/.vim/cache/ctrlp'
-  let g:ctrlp_max_files = 1000
-  let g:ctrlp_max_depth = 20
-  let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/]\.(git|hg|svn)$',
-    \ 'fire': '\v\.(exe|so|dll)$',
-  \ }
-  let g:ctrlp_user_command = [
-        \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
-        \ 'find %s -type f'
-        \ ]
-  let g:ctrlp_working_path_mode = 'ra'
-
-
 """ editorconfig
   let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -110,8 +92,9 @@ endfunction
   \   'direction': 'botright',
   \ })
 
-  nnoremap <leader>f :<C-u>Unite -start-insert file/async neomru/file tab<cr>
+  nnoremap <C-p> :<C-u>Unite -start-insert file/async neomru/file tab<cr>
   nnoremap <leader>s :<C-u>Unite -start-insert grep/git:/<cr>
+  nnoremap <leader>f :<C-u>Unite -start-insert function<cr>
 
 """ vimfiler
   let g:vimfiler_as_default_explorer = 1
