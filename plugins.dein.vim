@@ -16,6 +16,8 @@ call dein#add('ujihisa/unite-colorscheme')
 call dein#add('Shougo/neossh.vim')
 
 call dein#add('vim-scripts/po.vim--gray')
+call dein#add('wellle/targets.vim')
+call dein#add('rakr/vim-two-firewatch')
 
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('carlitux/deoplete-ternjs')
@@ -38,6 +40,7 @@ call dein#add('sickill/vim-pasta')
 call dein#add('tpope/vim-surround')
 
 call dein#add('editorconfig/editorconfig-vim')
+call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
 call dein#add('isRuslan/vim-es6', {'on_ft': 'javascript'})
 call dein#add('mileszs/ack.vim')
 
@@ -53,6 +56,8 @@ call dein#add('tpope/vim-unimpaired')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('hail2u/vim-css3-syntax')
+
+call dein#add('majutsushi/tagbar')
 
 call dein#end()
 
@@ -102,10 +107,19 @@ endfunction
 """ one theme
   let g:one_allow_italics = 1
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-  colorscheme one
 
 """ airline
   let g:airline_theme = 'one'
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
+
+""" tagbar
+  inoremap <F2> :TagbarToggle<CR>
+  nnoremap <F2> :TagbarToggle<CR>
+
+""" two firewatch
+  let g:two_firewatch_italics=1
+  colorscheme two-firewatch
+  let g:airline_theme='twofirewatch'
+
