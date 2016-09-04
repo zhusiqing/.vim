@@ -6,14 +6,14 @@ call dein#add('haya14busa/dein-command.vim')
 
 call dein#add('tpope/vim-sensible')
 
+call dein#add('metakirby5/codi.vim')
+call dein#add('kabbamine/vcoolor.vim')
+
+call dein#add('ctrlpvim/ctrlp.vim')
+
 call dein#add('CodeFalling/fcitx-vim-osx')
 
-call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/vimfiler.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('ujihisa/unite-colorscheme')
-
-call dein#add('Shougo/neossh.vim')
 
 call dein#add('vim-scripts/po.vim--gray')
 call dein#add('wellle/targets.vim')
@@ -22,9 +22,9 @@ call dein#add('rakr/vim-two-firewatch')
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('carlitux/deoplete-ternjs')
 call dein#add('SirVer/ultisnips')
-call dein#add('jiangmiao/auto-pairs')
 call dein#add('honza/vim-snippets')
 
+call dein#add('chrisbra/NrrwRgn')
 call dein#add('nicklasos/vim-jsx-riot')
 
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
@@ -33,7 +33,6 @@ call dein#add('airblade/vim-gitgutter')
 call dein#add('chrisbra/vim-diff-enhanced')
 call dein#add('ntpeters/vim-better-whitespace')
 
-call dein#add('rakr/vim-one')
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('alvan/vim-closetag')
 call dein#add('sickill/vim-pasta')
@@ -45,7 +44,6 @@ call dein#add('isRuslan/vim-es6', {'on_ft': 'javascript'})
 call dein#add('mileszs/ack.vim')
 
 call dein#add('othree/html5.vim', {'on_ft': 'html'})
-call dein#add('posva/vim-vue', {'on_ft': 'vue'})
 call dein#add('ternjs/tern_for_vim', {'build': 'npm install', 'on_ft': 'javascript'})
 
 call dein#add('tpope/vim-commentary')
@@ -90,26 +88,12 @@ endfunction
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
 
-""" unite.vim
-  call unite#custom#profile('default', 'context', {
-  \   'start_insert': 1,
-  \   'winheight': 20,
-  \   'direction': 'botright',
-  \ })
-
-  nnoremap <C-p> :<C-u>Unite -start-insert file/async neomru/file tab<cr>
-  nnoremap <leader>s :<C-u>Unite -start-insert grep/git:/<cr>
-  nnoremap <leader>f :<C-u>Unite -start-insert function<cr>
-
 """ vimfiler
   let g:vimfiler_as_default_explorer = 1
 
-""" one theme
-  let g:one_allow_italics = 1
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
 """ airline
-  let g:airline_theme = 'one'
+  let g:airline_theme = 'base16_harmonic16'
+  let g:airline_powerline_fonts = 1
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
@@ -118,8 +102,18 @@ endfunction
   inoremap <F2> :TagbarToggle<CR>
   nnoremap <F2> :TagbarToggle<CR>
 
-""" two firewatch
-  let g:two_firewatch_italics=1
-  colorscheme two-firewatch
-  let g:airline_theme='twofirewatch'
-
+""" ctrlp
+   let g:ctrlp_use_caching = 1
+   let g:ctrlp_clear_cache_on_exit = 0
+   let g:ctrlp_cache_dir = '$HOME/.vim/cache/ctrlp'
+   let g:ctrlp_max_files = 1000
+   let g:ctrlp_max_depth = 20
+   let g:ctrlp_custom_ignore = {
+     \ 'dir': '\v[\/]\.(git|hg|svn)$',
+     \ 'fire': '\v\.(exe|so|dll)$',
+   \ }
+   let g:ctrlp_user_command = [
+         \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+         \ 'find %s -type f'
+         \ ]
+   let g:ctrlp_working_path_mode = 'ra'
