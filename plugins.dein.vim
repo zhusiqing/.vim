@@ -132,3 +132,7 @@ endfunction
 
 """ jsx
   let g:jsx_ext_required = 0
+
+""" fzf
+  nnoremap <C-i> :FZF<cr>
+  inoremap <C-i> <ESC>:FZF<cr>i
