@@ -11,6 +11,7 @@ call dein#add('tpope/vim-sensible')
 
 call dein#add('metakirby5/codi.vim')
 call dein#add('kabbamine/vcoolor.vim')
+call dein#add('scrooloose/nerdtree')
 
 call dein#add('ctrlpvim/ctrlp.vim')
 
@@ -24,6 +25,7 @@ call dein#add('Shougo/deoplete.nvim')
 call dein#add('carlitux/deoplete-ternjs')
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
+call dein#add('ervandew/supertab')
 
 call dein#add('chrisbra/NrrwRgn')
 call dein#add('nicklasos/vim-jsx-riot')
@@ -44,6 +46,8 @@ call dein#add('tpope/vim-surround')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
 call dein#add('isRuslan/vim-es6', {'on_ft': 'javascript'})
+call dein#add('mxw/vim-jsx')
+call dein#add('gavocanov/vim-js-indent', {'on_ft': 'javascript'})
 call dein#add('mileszs/ack.vim')
 
 call dein#add('othree/html5.vim', {'on_ft': 'html'})
@@ -117,3 +121,14 @@ endfunction
          \ 'find %s -type f'
          \ ]
    let g:ctrlp_working_path_mode = 'ra'
+
+""" NERDTree
+
+  nnoremap <C-\> :NERDTreeToggle<CR>
+  inoremap <C-\> <ESC>:NERDTreeToggle<CR>
+
+""" supertab
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+
+""" jsx
+  let g:jsx_ext_required = 0
