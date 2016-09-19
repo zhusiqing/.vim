@@ -4,6 +4,9 @@ call dein#begin(expand('$HOME/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 call dein#add('haya14busa/dein-command.vim')
 
+call dein#add('tyrannicaltoucan/vim-deep-space')
+call dein#add('moskytw/nginx-contrib-vim')
+
 call dein#add('tpope/vim-sensible')
 
 call dein#add('metakirby5/codi.vim')
@@ -12,8 +15,6 @@ call dein#add('kabbamine/vcoolor.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('CodeFalling/fcitx-vim-osx')
-
-call dein#add('Shougo/vimfiler.vim')
 
 call dein#add('vim-scripts/po.vim--gray')
 call dein#add('wellle/targets.vim')
@@ -32,6 +33,8 @@ call dein#add('mhinz/vim-startify')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('chrisbra/vim-diff-enhanced')
 call dein#add('ntpeters/vim-better-whitespace')
+
+call dein#add('junegunn/fzf', {'build': './install --all'})
 
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('alvan/vim-closetag')
@@ -87,9 +90,6 @@ endfunction
 
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
-
-""" vimfiler
-  let g:vimfiler_as_default_explorer = 1
 
 """ airline
   let g:airline_theme = 'base16_harmonic16'

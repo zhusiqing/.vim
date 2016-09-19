@@ -5,7 +5,6 @@ let python_host_prog = "python3"
 
 source $HOME/.vim/plugins.dein.vim
 
-set autochdir
 set autoread
 set background=dark
 set backupcopy=yes
@@ -30,6 +29,7 @@ set showmatch
 set smartcase
 set softtabstop=2
 set tabstop=2
+set termguicolors
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=100000
@@ -56,5 +56,7 @@ autocmd FileType javascript setlocal suffixesadd+=.js path+=$PWD/node_modules
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
+
+colorscheme deep-space
 
 source $HOME/.vim/custom.vim
