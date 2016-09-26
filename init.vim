@@ -39,6 +39,7 @@ set wildignore+=*.a,*.o,*.so,*.pyc,*.class
 set wildignore+=*.bak,*.swp,*.swo
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.pdf
 set wildignore+=*/.git*,*.tar,*.zip
+set wildignore+=*node_modules*
 set wildmenu
 set wildmode=longest:full,list:full
 set wrap

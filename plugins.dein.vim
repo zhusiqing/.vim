@@ -93,15 +93,17 @@ endfunction
    let g:ctrlp_clear_cache_on_exit = 0
    let g:ctrlp_cache_dir = '$HOME/.vim/cache/ctrlp'
    let g:ctrlp_max_files = 1000
-   let g:ctrlp_max_depth = 20
+   let g:ctrlp_max_history = &history
+   let g:ctrlp_max_depth = 10
    let g:ctrlp_custom_ignore = {
      \ 'dir': '\v[\/]\.(git|hg|svn)$',
      \ 'fire': '\v\.(exe|so|dll)$',
    \ }
-   let g:ctrlp_user_command = [
-         \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
-         \ 'find %s -type f'
-         \ ]
+   let g:ctrlp_user_command = ['rg --files']
+   " let g:ctrlp_user_command = [
+   "       \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+   "       \ 'find %s -type f'
+   "       \ ]
    let g:ctrlp_working_path_mode = 'ra'
    let g:ctrlp_reuse_window = 'startify'
 """ startify
