@@ -1,68 +1,50 @@
 set runtimepath^=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim/
 
 call dein#begin(expand('$HOME/.vim/dein'))
-call dein#add('Shougo/dein.vim')
-call dein#add('haya14busa/dein-command.vim')
-
-call dein#add('tyrannicaltoucan/vim-deep-space')
-call dein#add('moskytw/nginx-contrib-vim')
-
-call dein#add('tpope/vim-sensible')
-
-call dein#add('metakirby5/codi.vim')
-call dein#add('kabbamine/vcoolor.vim')
-call dein#add('scrooloose/nerdtree')
-
-call dein#add('ctrlpvim/ctrlp.vim')
 
 call dein#add('CodeFalling/fcitx-vim-osx')
-
-call dein#add('vim-scripts/po.vim--gray')
-call dein#add('wellle/targets.vim')
-call dein#add('rakr/vim-two-firewatch')
-
+call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('carlitux/deoplete-ternjs')
-call dein#add('SirVer/ultisnips')
-call dein#add('honza/vim-snippets')
-call dein#add('ervandew/supertab')
-
-call dein#add('chrisbra/NrrwRgn')
-call dein#add('nicklasos/vim-jsx-riot')
-
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('mhinz/vim-startify')
+call dein#add('SirVer/ultisnips')
 call dein#add('airblade/vim-gitgutter')
-call dein#add('chrisbra/vim-diff-enhanced')
-call dein#add('ntpeters/vim-better-whitespace')
-
-call dein#add('junegunn/fzf', {'build': './install --all'})
-
-call dein#add('junegunn/vim-peekaboo')
 call dein#add('alvan/vim-closetag')
-call dein#add('sickill/vim-pasta')
-call dein#add('tpope/vim-surround')
-
+call dein#add('carlitux/deoplete-ternjs')
+call dein#add('chrisbra/NrrwRgn')
+call dein#add('chrisbra/vim-diff-enhanced')
+call dein#add('csscomb/vim-csscomb')
+call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('editorconfig/editorconfig-vim')
-call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})
-call dein#add('isRuslan/vim-es6', {'on_ft': 'javascript'})
-call dein#add('mxw/vim-jsx')
-call dein#add('gavocanov/vim-js-indent', {'on_ft': 'javascript'})
+call dein#add('ervandew/supertab')
+call dein#add('gavocanov/vim-js-indent')
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('haya14busa/dein-command.vim')
+call dein#add('honza/vim-snippets')
+call dein#add('junegunn/fzf', {'build': './install --all'})
+call dein#add('junegunn/vim-peekaboo')
+call dein#add('kabbamine/vcoolor.vim')
+call dein#add('majutsushi/tagbar')
+call dein#add('metakirby5/codi.vim')
+call dein#add('mhinz/vim-startify')
 call dein#add('mileszs/ack.vim')
-
+call dein#add('moskytw/nginx-contrib-vim')
+call dein#add('mxw/vim-jsx')
+call dein#add('ntpeters/vim-better-whitespace')
 call dein#add('othree/html5.vim', {'on_ft': 'html'})
+call dein#add('pangloss/vim-javascript')
+call dein#add('rakr/vim-two-firewatch')
+call dein#add('sickill/vim-pasta')
 call dein#add('ternjs/tern_for_vim', {'build': 'npm install', 'on_ft': 'javascript'})
-
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-sensible')
+call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-unimpaired')
-
+call dein#add('tyrannicaltoucan/vim-deep-space')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-call dein#add('hail2u/vim-css3-syntax')
-
-call dein#add('majutsushi/tagbar')
+call dein#add('wellle/targets.vim')
 
 call dein#end()
 
@@ -121,11 +103,42 @@ endfunction
          \ 'find %s -type f'
          \ ]
    let g:ctrlp_working_path_mode = 'ra'
+   let g:ctrlp_reuse_window = 'startify'
+""" startify
 
-""" NERDTree
+  autocmd User Startified setlocal cursorline
 
-  nnoremap <C-\> :NERDTreeToggle<CR>
-  inoremap <C-\> <ESC>:NERDTreeToggle<CR>
+  let g:startify_enable_special         = 0
+  let g:startify_files_number           = 8
+  let g:startify_relative_path          = 1
+  let g:startify_change_to_dir          = 1
+  let g:startify_update_oldfiles        = 1
+  let g:startify_session_autoload       = 1
+  let g:startify_session_persistence    = 1
+  let g:startify_session_delete_buffers = 1
+
+  let g:startify_skiplist = [
+              \ 'COMMIT_EDITMSG',
+              \ 'bundle/.*/doc',
+              \ '/data/repo/neovim/runtime/doc',
+              \ ]
+
+  let g:startify_bookmarks = [
+              \ { 'c': '~/.vim/init.vim' },
+              \ { 'p': '~/.vim/plugins.dein.vim' },
+              \ ]
+
+  let g:startify_custom_footer =
+        \ ['', " There is no spoon.", '']
+
+  hi StartifyBracket ctermfg=240
+  hi StartifyFile    ctermfg=147
+  hi StartifyFooter  ctermfg=240
+  hi StartifyHeader  ctermfg=114
+  hi StartifyNumber  ctermfg=215
+  hi StartifyPath    ctermfg=245
+  hi StartifySlash   ctermfg=240
+  hi StartifySpecial ctermfg=240
 
 """ supertab
   let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -136,3 +149,7 @@ endfunction
 """ fzf
   nnoremap <C-i> :FZF<cr>
   inoremap <C-i> <ESC>:FZF<cr>i
+
+""" csscomb
+  autocmd FileType css nnoremap <buffer> <leader>bc :CSScomb<CR>
+  autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
