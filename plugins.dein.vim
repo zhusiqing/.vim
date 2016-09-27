@@ -25,6 +25,7 @@ call dein#add('junegunn/vim-peekaboo')
 call dein#add('kabbamine/vcoolor.vim')
 call dein#add('majutsushi/tagbar')
 call dein#add('metakirby5/codi.vim')
+call dein#add('mhinz/vim-grepper')
 call dein#add('mhinz/vim-startify')
 call dein#add('mileszs/ack.vim')
 call dein#add('moskytw/nginx-contrib-vim')
@@ -155,3 +156,25 @@ endfunction
 """ csscomb
   autocmd FileType css nnoremap <buffer> <leader>bc :CSScomb<CR>
   autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+
+""" vim-grepper
+
+" for browsing the input history
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>G :Grepper -tool rg<cr>
+
+let g:grepper = {
+    \ 'tools':     ['rg', 'git'],
+    \ 'rg': {
+    \   'grepprg': 'rg --vimgrep'
+    \ },
+    \ 'open':      1,
+    \ 'jump':      1,
+    \ 'next_tool': '<leader>g',
+    \ }
