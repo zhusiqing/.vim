@@ -11,7 +11,9 @@ set backupcopy=yes
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set clipboard=unnamed
 set completeopt-=preview
+set cursorline
 set expandtab
+set exrc
 set hlsearch
 set ignorecase
 set lazyredraw
@@ -23,6 +25,7 @@ set nobackup
 set noswapfile
 set nrformats+=alpha
 set number
+set secure
 set shiftround
 set shiftwidth=2
 set showmatch
@@ -43,7 +46,6 @@ set wildignore+=*node_modules*
 set wildmenu
 set wildmode=longest:full,list:full
 set wrap
-set cursorline
 
 nnoremap gb :ls<CR>:b
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -58,6 +60,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-colorscheme deep-space
+colorscheme onedark
 
 source $HOME/.vim/custom.vim
