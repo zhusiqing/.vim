@@ -6,7 +6,7 @@ let python_host_prog = "python3"
 source $HOME/.vim/plugins.dein.vim
 
 set autoread
-set background=dark
+set background=light
 set backupcopy=yes
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set clipboard=unnamed
@@ -60,6 +60,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-colorscheme onedark
+colorscheme ayu
 
 source $HOME/.vim/custom.vim

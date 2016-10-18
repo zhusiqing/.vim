@@ -7,8 +7,10 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('SirVer/ultisnips')
+call dein#add('Yggdroot/indentLine')
 call dein#add('airblade/vim-gitgutter')
 call dein#add('alvan/vim-closetag')
+call dein#add('ayu-theme/ayu-vim')
 call dein#add('carlitux/deoplete-ternjs')
 call dein#add('chrisbra/NrrwRgn')
 call dein#add('chrisbra/vim-diff-enhanced')
@@ -159,6 +161,12 @@ endfunction
 """ csscomb
   autocmd FileType css nnoremap <buffer> <leader>bc :CSScomb<CR>
   autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+
+""" IndentLine
+  let g:indentLine_char = '-'
+  let g:indentLine_first_char = '|'
+  let g:indentLine_showFirstIndentLevel = 1
+  let g:indentLine_setColors = 0
 
 """ vim-grepper
 
