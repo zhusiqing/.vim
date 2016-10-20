@@ -25,6 +25,7 @@ call dein#add('honza/vim-snippets')
 call dein#add('joshdick/onedark.vim')
 call dein#add('junegunn/fzf', {'build': './install --all'})
 call dein#add('junegunn/vim-peekaboo')
+call dein#add('junegunn/vim-slash')
 call dein#add('kabbamine/vcoolor.vim')
 call dein#add('majutsushi/tagbar')
 call dein#add('metakirby5/codi.vim')
@@ -163,8 +164,7 @@ endfunction
   autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
 
 """ IndentLine
-  let g:indentLine_char = '-'
-  let g:indentLine_first_char = '|'
+  let g:indentLine_char = '┊'
   let g:indentLine_showFirstIndentLevel = 1
   let g:indentLine_setColors = 0
 

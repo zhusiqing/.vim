@@ -1,8 +1,5 @@
 let python_host_prog = "python3"
 
-" DEPRECATED:
-" source $HOME/.vim/vim-plug-setup.vim
-
 source $HOME/.vim/plugins.dein.vim
 
 set autoread
@@ -54,7 +51,6 @@ nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3 / 2)<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2 / 3)<CR>
 
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
-autocmd BufNewFile,BufRead *.tag setlocal filetype=javascript
 autocmd FileType javascript setlocal suffixesadd+=.js path+=$PWD/node_modules
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
