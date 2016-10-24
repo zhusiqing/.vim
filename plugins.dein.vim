@@ -23,7 +23,6 @@ call dein#add('hail2u/vim-css3-syntax')
 call dein#add('haya14busa/dein-command.vim')
 call dein#add('honza/vim-snippets')
 call dein#add('joshdick/onedark.vim')
-call dein#add('junegunn/fzf', {'build': './install --all'})
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('junegunn/vim-slash')
 call dein#add('kabbamine/vcoolor.vim')
@@ -134,7 +133,7 @@ endfunction
 
   let g:startify_bookmarks = [
               \ { 'c': '~/.vim/init.vim' },
-              \ { 'p': '~/.vim/plugins.dein.vim' },
+              \ { 'd': '~/.vim/plugins.dein.vim' },
               \ ]
 
   let g:startify_custom_footer =
@@ -154,10 +153,6 @@ endfunction
 
 """ jsx
   let g:jsx_ext_required = 0
-
-""" fzf
-  nnoremap <C-i> :FZF<cr>
-  inoremap <C-i> <ESC>:FZF<cr>i
 
 """ csscomb
   autocmd FileType css nnoremap <buffer> <leader>bc :CSScomb<CR>

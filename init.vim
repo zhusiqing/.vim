@@ -3,7 +3,7 @@ let python_host_prog = "python3"
 source $HOME/.vim/plugins.dein.vim
 
 set autoread
-set background=light
+set background=dark
 set backupcopy=yes
 set backupskip=/tmp/*,/private/tmp/* " fix for `crontab -e`
 set clipboard=unnamed
