@@ -16,6 +16,7 @@ call dein#add('chrisbra/NrrwRgn')
 call dein#add('chrisbra/vim-diff-enhanced')
 call dein#add('csscomb/vim-csscomb')
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('digitaltoad/vim-pug')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('ervandew/supertab')
 call dein#add('gavocanov/vim-js-indent')
@@ -48,7 +49,8 @@ call dein#add('tpope/vim-unimpaired')
 call dein#add('tyrannicaltoucan/vim-deep-space')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-call dein#add('w0rp/ale')
+call dein#add('vim-pandoc/vim-pandoc')
+call dein#add('vim-pandoc/vim-pandoc-syntax')
 call dein#add('wellle/targets.vim')
 call dein#add('zhuangya/wx-vim')
 
@@ -184,3 +186,9 @@ let g:grepper = {
     \ 'jump':      1,
     \ 'next_tool': '<leader>g',
     \ }
+
+""" pandoc
+augroup pandoc_syntax
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
