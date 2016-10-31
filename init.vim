@@ -1,6 +1,6 @@
 let python_host_prog = "python3"
 
-source $HOME/.vim/plugins.dein.vim
+source $HOME/.vim/plugins.vim
 
 set autoread
 set background=dark

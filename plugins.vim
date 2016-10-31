@@ -1,70 +1,58 @@
-set runtimepath^=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim/
+call plug#begin('~/.vim/plugged')
 
-call dein#begin(expand('$HOME/.vim/dein'))
+Plug 'CodeFalling/fcitx-vim-osx'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/vimproc.vim', {'build' : 'make'}
+Plug 'SirVer/ultisnips'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'alvan/vim-closetag'
+Plug 'ayu-theme/ayu-vim'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'chrisbra/NrrwRgn'
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'csscomb/vim-csscomb'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ervandew/supertab'
+Plug 'gavocanov/vim-js-indent'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'honza/vim-snippets'
+Plug 'joshdick/onedark.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-slash'
+Plug 'kabbamine/vcoolor.vim'
+Plug 'majutsushi/tagbar'
+Plug 'metakirby5/codi.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
+Plug 'mileszs/ack.vim'
+Plug 'moskytw/nginx-contrib-vim'
+Plug 'mxw/vim-jsx'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'othree/jspc.vim', {'for': ['javascript', 'javascript.jsx']}
+Plug 'pangloss/vim-javascript'
+Plug 'rakr/vim-two-firewatch'
+Plug 'sickill/vim-pasta'
+Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'wellle/targets.vim'
+Plug 'zhuangya/vim-auto-plug'
+Plug 'zhuangya/wx-vim'
 
-call dein#add('CodeFalling/fcitx-vim-osx')
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('SirVer/ultisnips')
-call dein#add('Yggdroot/indentLine')
-call dein#add('airblade/vim-gitgutter')
-call dein#add('alvan/vim-closetag')
-call dein#add('ayu-theme/ayu-vim')
-call dein#add('carlitux/deoplete-ternjs')
-call dein#add('chrisbra/NrrwRgn')
-call dein#add('chrisbra/vim-diff-enhanced')
-call dein#add('csscomb/vim-csscomb')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('digitaltoad/vim-pug')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('ervandew/supertab')
-call dein#add('gavocanov/vim-js-indent')
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('haya14busa/dein-command.vim')
-call dein#add('honza/vim-snippets')
-call dein#add('joshdick/onedark.vim')
-call dein#add('junegunn/vim-peekaboo')
-call dein#add('junegunn/vim-slash')
-call dein#add('kabbamine/vcoolor.vim')
-call dein#add('majutsushi/tagbar')
-call dein#add('metakirby5/codi.vim')
-call dein#add('mhinz/vim-grepper')
-call dein#add('mhinz/vim-startify')
-call dein#add('mileszs/ack.vim')
-call dein#add('moskytw/nginx-contrib-vim')
-call dein#add('mxw/vim-jsx')
-call dein#add('ntpeters/vim-better-whitespace')
-call dein#add('othree/html5.vim', {'on_ft': 'html'})
-call dein#add('pangloss/vim-javascript')
-call dein#add('rakr/vim-two-firewatch')
-call dein#add('sickill/vim-pasta')
-call dein#add('ternjs/tern_for_vim', {'build': 'npm install', 'on_ft': 'javascript'})
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-sensible')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tyrannicaltoucan/vim-deep-space')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('vim-pandoc/vim-pandoc')
-call dein#add('vim-pandoc/vim-pandoc-syntax')
-call dein#add('wellle/targets.vim')
-call dein#add('zhuangya/wx-vim')
-
-call dein#end()
-
-filetype plugin indent on
-
-if dein#check_install()
-  call dein#install()
-endif
-
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+call plug#end()
 
 """"
 
@@ -81,6 +69,12 @@ endfunction
   let g:tern_request_timeout = 1
   let g:tern#command = ["tern"]
   let g:tern#arguments = ["--persistent"]
+
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#omni#functions.javascript = [
+    \ 'tern#Complete',
+    \ 'jspc#omni'
+  \]
 
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
