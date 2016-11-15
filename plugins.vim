@@ -31,6 +31,7 @@ Plug 'mileszs/ack.vim'
 Plug 'moskytw/nginx-contrib-vim'
 Plug 'mxw/vim-jsx'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'othree/jspc.vim', {'for': ['javascript', 'javascript.jsx']}
 Plug 'pangloss/vim-javascript'
@@ -48,6 +49,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-syntastic/syntastic'
 Plug 'wellle/targets.vim'
 Plug 'zhuangya/vim-auto-plug'
 Plug 'zhuangya/wx-vim'
@@ -186,3 +188,11 @@ augroup pandoc_syntax
   au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
 
+"""
+" Syntastic
+"""
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
