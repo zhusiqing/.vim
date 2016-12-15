@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'CodeFalling/fcitx-vim-osx'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'SirVer/ultisnips'
@@ -8,12 +7,11 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'ayu-theme/ayu-vim'
+Plug 'brooth/far.vim'
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'chrisbra/NrrwRgn'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'csscomb/vim-csscomb'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'gavocanov/vim-js-indent'
@@ -22,12 +20,9 @@ Plug 'honza/vim-snippets'
 Plug 'joshdick/onedark.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
-Plug 'kabbamine/vcoolor.vim'
 Plug 'majutsushi/tagbar'
-Plug 'metakirby5/codi.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
 Plug 'moskytw/nginx-contrib-vim'
 Plug 'mxw/vim-jsx'
 Plug 'ntpeters/vim-better-whitespace'
@@ -35,24 +30,19 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'othree/jspc.vim', {'for': ['javascript', 'javascript.jsx']}
 Plug 'pangloss/vim-javascript'
-Plug 'rakr/vim-two-firewatch'
 Plug 'sickill/vim-pasta'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-syntastic/syntastic'
 Plug 'wellle/targets.vim'
 Plug 'zhuangya/vim-auto-plug'
-Plug 'zhuangya/wx-vim'
 
 call plug#end()
 

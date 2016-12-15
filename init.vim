@@ -1,4 +1,5 @@
-let python_host_prog = "python3"
+"let python_host_prog = "python"
+let python3_host_prog = "python3"
 
 source $HOME/.vim/plugins.vim
 
