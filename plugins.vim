@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
-Plug 'SirVer/ultisnips'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
@@ -37,8 +36,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'wellle/targets.vim'
@@ -70,10 +67,6 @@ call plug#end()
 
 """ ultisnips
   let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
-
-""" airline
-  let g:airline_theme = 'base16_harmonic16'
-  let g:airline_powerline_fonts = 1
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
