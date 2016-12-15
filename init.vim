@@ -29,6 +29,7 @@ set shiftwidth=2
 set showmatch
 set smartcase
 set softtabstop=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set tabstop=2
 set termguicolors
 set undodir=~/.vim/undodir
