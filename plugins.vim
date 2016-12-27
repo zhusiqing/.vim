@@ -29,6 +29,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'othree/jspc.vim', {'for': ['javascript', 'javascript.jsx']}
 Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
 Plug 'sickill/vim-pasta'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
 Plug 'tpope/vim-commentary'
