@@ -58,6 +58,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
+"let ayucolor="light"
 colorscheme ayu
 
 source $HOME/.vim/custom.vim
@@ -67,7 +68,7 @@ augroup project
   autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
 augroup END
 
-let &path.="src/include,/usr/include/AL,"
+let &path.="src/include,/usr/include/AL,dep/,"
 let includeexpr=substitute(v:fname,'\\.','/','g')
 
 " for below, via http://superuser.com/a/632661/102651
@@ -114,3 +115,9 @@ autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 " ensure normal tabs in assembly files
 " and set to NASM syntax highlighting
 autocmd FileType asm set noexpandtab shiftwidth=8 softtabstop=0 syntax=nasm
+
+" Helpers for command mode
+" %% for current buffer file name
+" :: for current buffer file path
+cnoremap %% <C-R>=fnameescape(expand('%'))<CR>
+cnoremap :: <C-R>=fnameescape(expand('%:p:h'))<CR>/
