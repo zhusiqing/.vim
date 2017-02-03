@@ -49,17 +49,15 @@ set wrap
 nnoremap gb :ls<CR>:b
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3 / 2)<CR>
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2 / 3)<CR>
-
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd FileType javascript setlocal suffixesadd+=.js path+=$PWD/node_modules
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-"let ayucolor="light"
-colorscheme ayu
+colorscheme nova
+
+autocmd BufRead,BufNewFile *.tag set filetype=javascript
 
 source $HOME/.vim/custom.vim
 
@@ -93,7 +91,7 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 " fixed indentation should be OK for XML and CSS. People have fast internet
 " anyway. Indentation set to 2.
-autocmd FileType html,xhtml,css,xml,xslt set shiftwidth=2 softtabstop=2
+" autocmd FileType html,xhtml,css,xml,xslt set shiftwidth=2 softtabstop=2
 
 " two space indentation for some files
 autocmd FileType vim,lua,nginx set shiftwidth=2 softtabstop=2

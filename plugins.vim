@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', {'build' : 'make'}
 Plug 'Yggdroot/indentLine'
@@ -31,6 +32,7 @@ Plug 'othree/jspc.vim', {'for': ['javascript', 'javascript.jsx']}
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'sickill/vim-pasta'
+Plug 'stephpy/vim-yaml'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -40,6 +42,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'wellle/targets.vim'
+Plug 'zanglg/nova.vim'
 Plug 'zhuangya/vim-auto-plug'
 
 call plug#end()
@@ -65,9 +68,6 @@ call plug#end()
     \ 'tern#Complete',
     \ 'jspc#omni'
   \]
-
-""" ultisnips
-  let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips/'
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
@@ -111,11 +111,6 @@ call plug#end()
               \ 'COMMIT_EDITMSG',
               \ 'bundle/.*/doc',
               \ '/data/repo/neovim/runtime/doc',
-              \ ]
-
-  let g:startify_bookmarks = [
-              \ { 'c': '~/.vim/init.vim' },
-              \ { 'd': '~/.vim/plugins.dein.vim' },
               \ ]
 
   let g:startify_custom_footer =
@@ -173,14 +168,14 @@ augroup pandoc_syntax
 augroup END
 
 """
-" Syntastic
+" Denite
 """
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = []
+" Q: What is the correct way to say \"if I'm in a git directory, git ls-files for file_rec\" ?
 
-let g:syntastic_c_include_dirs=['deps']
+call denite#custom#alias('source', 'file_rec/git', 'file_rec')
+call denite#custom#var('file_rec/git', 'command',
+\ ['git', 'ls-files', '-co', '--exclude-standard'])
+nnoremap <silent> <C-t> :<C-u>Denite
+\ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
 
