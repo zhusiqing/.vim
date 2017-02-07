@@ -8,3 +8,4 @@ custom.vim
 dein/
 installer.sh
 plugged/
+startify-sessions/

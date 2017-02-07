@@ -88,14 +88,20 @@ call plug#end()
   let g:startify_session_persistence    = 1
   let g:startify_session_delete_buffers = 1
 
-  let g:startify_skiplist = [
-              \ 'COMMIT_EDITMSG',
-              \ 'bundle/.*/doc',
-              \ '/data/repo/neovim/runtime/doc',
-              \ ]
+  let g:startify_session_dir = '$HOME/.vim/startify-sessions'
 
-  let g:startify_custom_footer =
-        \ ['', " There is no spoon.", '']
+  let g:startify_skiplist = [
+        \ 'COMMIT_EDITMSG',
+        \ 'bundle/.*/doc',
+        \ '/data/repo/neovim/runtime/doc',
+        \ '/Users/mhi/local/vim/share/vim/vim74/doc',
+        \ ]
+
+  " let g:startify_custom_footer =
+  "       \ ['There is no spoon']
+
+  let g:startify_custom_header =
+        \ startify#fortune#cowsay('═','║','╔','╗','╝','╚')
 
   hi StartifyBracket ctermfg=240
   hi StartifyFile    ctermfg=147
