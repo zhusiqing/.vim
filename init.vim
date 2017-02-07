@@ -43,8 +43,35 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.pdf
 set wildignore+=*/.git*,*.tar,*.zip
 set wildignore+=*node_modules*
 set wildmenu
-set wildmode=longest:full,list:full
+set wildmode=list:longest,full
 set wrap
+
+set colorcolumn=+3
+set synmaxcol=512
+set notimeout
+set ttimeout
+if !has('nvim')
+  set ttimeoutlen=10
+endif
+
+set browsedir=buffer
+set isfname-==
+set complete-=i
+set complete-=t
+set completeopt-=preview
+set completeopt+=menu,menuone
+
+set autoindent
+set nocopyindent
+set nopreserveindent
+set nosmartindent
+set nocindent
+set noshiftround
+set smarttab
+set backspace=indent,eol,start
+
+let g:netrw_liststyle = 3
+let g:netrw_browsex_viewer = has('mac') ? 'open' : 'xdg-open'
 
 nnoremap gb :ls<CR>:b
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
@@ -55,7 +82,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-colorscheme nova
+colorscheme mac_classic
 
 autocmd BufRead,BufNewFile *.tag set filetype=javascript
 
