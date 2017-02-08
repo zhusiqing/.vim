@@ -1,8 +1,24 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+
+  """ deoplete
+  let g:deoplete#enable_at_startup = 1
+
+  let g:tern_request_timeout = 1
+  let g:tern#command = ["tern"]
+  let g:tern#arguments = ["--persistent"]
+
+  let g:deoplete#omni#functions = {}
+  let g:deoplete#omni#functions.javascript = [
+        \ 'tern#Complete',
+        \ 'jspc#omni'
+        \]
+
+endif
 Plug 'airblade/vim-gitgutter'
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'csscomb/vim-csscomb'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -29,6 +45,21 @@ Plug 'wellle/targets.vim'
 Plug 'zanglg/nova.vim'
 Plug 'zhuangya/vim-auto-plug'
 
+if !has('nvim')
+  function! BuildYCM(info)
+    " info is a dictionary with 3 fields
+    " - name:   name of the plugin
+    " - status: 'installed', 'updated', or 'unchanged'
+    " - force:  set on PlugInstall! or PlugUpdate!
+    if a:info.status == 'installed' || a:info.force
+      !./install.py
+    endif
+  endfunction
+
+  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+endif
+
+
 call plug#end()
 
 """"
@@ -37,18 +68,6 @@ call plug#end()
 "
 """"
 
-""" deoplete
-  let g:deoplete#enable_at_startup = 1
-
-  let g:tern_request_timeout = 1
-  let g:tern#command = ["tern"]
-  let g:tern#arguments = ["--persistent"]
-
-  let g:deoplete#omni#functions = {}
-  let g:deoplete#omni#functions.javascript = [
-    \ 'tern#Complete',
-    \ 'jspc#omni'
-  \]
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
