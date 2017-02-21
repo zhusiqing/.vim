@@ -18,6 +18,9 @@ if has('nvim')
         \]
 
 endif
+
+Plug 'nikvdp/ejs-syntax'
+Plug 'Shougo/denite.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'csscomb/vim-csscomb'
@@ -44,6 +47,9 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'wellle/targets.vim'
 Plug 'zanglg/nova.vim'
 Plug 'zhuangya/vim-auto-plug'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
 
 if !has('nvim')
   function! BuildYCM(info)

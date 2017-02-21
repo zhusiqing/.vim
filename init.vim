@@ -82,7 +82,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-colorscheme mac_classic
+colorscheme brogrammer
 
 autocmd BufRead,BufNewFile *.tag set filetype=javascript
 
@@ -146,3 +146,5 @@ autocmd FileType asm set noexpandtab shiftwidth=8 softtabstop=0 syntax=nasm
 " :: for current buffer file path
 cnoremap %% <C-R>=fnameescape(expand('%'))<CR>
 cnoremap :: <C-R>=fnameescape(expand('%:p:h'))<CR>/
+
+nnoremap <C-l> :nohlsearch<cr>
