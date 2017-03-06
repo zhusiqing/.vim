@@ -19,6 +19,8 @@ if has('nvim')
 
 endif
 
+Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
+Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
 Plug 'Shougo/denite.nvim'
 Plug 'airblade/vim-gitgutter'
@@ -44,7 +46,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'wellle/targets.vim'
 Plug 'zanglg/nova.vim'
 Plug 'zhuangya/vim-auto-plug'
 
@@ -62,7 +63,10 @@ if !has('nvim')
     endif
   endfunction
 
-  Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+  Plug 'maralla/completor.vim'
+
+  let g:completor_node_binary = '/usr/local/bin/node'
+  "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 endif
 
 
