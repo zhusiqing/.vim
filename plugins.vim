@@ -19,6 +19,9 @@ if has('nvim')
 
 endif
 
+Plug 'posva/vim-vue'
+Plug 'vim-syntastic/syntastic'
+
 Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
