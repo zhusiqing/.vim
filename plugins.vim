@@ -20,11 +20,7 @@ if has('nvim')
 endif
 
 Plug 'posva/vim-vue'
-Plug 'vim-syntastic/syntastic'
-  let g:syntastic_filetype_map = {
-        \ "vue": "vue"
-        \}
-
+Plug 'vim-airline/vim-airline'
 Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
