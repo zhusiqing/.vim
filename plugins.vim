@@ -21,6 +21,9 @@ endif
 
 Plug 'posva/vim-vue'
 Plug 'vim-syntastic/syntastic'
+  let g:syntastic_filetype_map = {
+        \ "vue": "vue"
+        \}
 
 Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
 Plug 'tweekmonster/startuptime.vim'

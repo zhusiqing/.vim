@@ -3,6 +3,7 @@ let python3_host_prog = "python3"
 
 source $HOME/.vim/plugins.vim
 
+set iskeyword+=-
 set autoread
 set background=dark
 set backupcopy=yes
@@ -29,7 +30,7 @@ set shiftwidth=2
 set showmatch
 set smartcase
 set softtabstop=2
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=%F%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 set tabstop=2
 set termguicolors
 set undodir=~/.vim/undodir
