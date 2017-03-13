@@ -19,6 +19,7 @@ if has('nvim')
 
 endif
 
+Plug 'IN3D/vim-raml'
 Plug 'posva/vim-vue'
 Plug 'vim-airline/vim-airline'
 Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
