@@ -3,7 +3,6 @@ let python3_host_prog = "python3"
 
 source $HOME/.vim/plugins.vim
 
-set iskeyword+=-
 set autoread
 set background=dark
 set backupcopy=yes
