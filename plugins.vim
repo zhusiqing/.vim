@@ -22,7 +22,8 @@ endif
 Plug 'IN3D/vim-raml'
 Plug 'posva/vim-vue'
 Plug 'vim-airline/vim-airline'
-Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
+Plug 'tpope/vim-vinegar'
+"Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
 Plug 'Shougo/denite.nvim'
