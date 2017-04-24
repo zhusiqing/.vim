@@ -43,9 +43,9 @@ Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'pangloss/vim-javascript'
 Plug 'sbdchd/neoformat'
 
-autocmd FileType javascript set formatprg=prettier\ --stdin\  --single-quote
+autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote
 let g:neoformat_try_formatprg = 1
-autocmd BufWritePre *.js Neoformat
+"autocmd BufWritePre *.js Neoformat
 Plug 'stephpy/vim-yaml'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
 Plug 'tpope/vim-commentary'
