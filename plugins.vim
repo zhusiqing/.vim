@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
 
   """ deoplete
   let g:deoplete#enable_at_startup = 1
@@ -51,13 +52,23 @@ function! s:incsearch_config(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
 noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 Plug 'IN3D/vim-raml'
 Plug 'posva/vim-vue'
+Plug 'mileszs/ack.vim'
+  let g:ackprg = 'rg --vimgrep --no-heading'
+  nmap <leader>a :Ack<space>
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-vinegar'
+  let g:ale_enabled = 1
+  let g:airline#extensions#ale#enabled = 1
+  let g:ale_change_sign_column_color = 1
+  let g:ale_linters = {
+        \ 'sass': ['stylelint']
+        \ }
+Plug 'w0rp/ale'
 "Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
@@ -87,6 +98,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'lambdalisue/gina.vim'
+Plug 'kassio/neoterm'
+Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -141,11 +155,12 @@ call plug#end()
      \ 'dir': '\v[\/]\.(git|hg|svn)$',
      \ 'fire': '\v\.(exe|so|dll)$',
    \ }
-   let g:ctrlp_user_command = ['rg --files']
-   " let g:ctrlp_user_command = [
-   "       \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
-   "       \ 'find %s -type f'
-   "       \ ]
+   " let g:ctrlp_user_command = ['rg --files']
+   let g:ctrlp_user_command = [
+         \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+         \ 'rg %s --files --color=never --glob ""',
+         \ 'find %s -type f'
+         \ ]
    let g:ctrlp_working_path_mode = 'ra'
    let g:ctrlp_reuse_window = 'startify'
 
