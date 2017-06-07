@@ -4,7 +4,6 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
-
   """ deoplete
   let g:deoplete#enable_at_startup = 1
 
@@ -17,44 +16,8 @@ if has('nvim')
         \ 'tern#Complete',
         \ 'jspc#omni'
         \]
-
 endif
 
-Plug 'easymotion/vim-easymotion'
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
-" You can use other keymappings like <C-l> instead of <CR> if you want to
-" use these mappings as default search and somtimes want to move cursor with
-" EasyMotion.
-function! s:incsearch_config(...) abort
-  return incsearch#util#deepextend(deepcopy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {
-  \     "\<CR>": '<Over>(easymotion)'
-  \   },
-  \   'is_expr': 0
-  \ }), get(a:, 1, {}))
-endfunction
-
-" noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
-" noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
-noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 1}))
 Plug 'IN3D/vim-raml'
 Plug 'posva/vim-vue'
 Plug 'mileszs/ack.vim'
@@ -62,14 +25,14 @@ Plug 'mileszs/ack.vim'
   nmap <leader>a :Ack<space>
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-vinegar'
+Plug 'w0rp/ale'
   let g:ale_enabled = 1
   let g:airline#extensions#ale#enabled = 1
   let g:ale_change_sign_column_color = 1
-  let g:ale_linters = {
-        \ 'sass': ['stylelint']
-        \ }
-Plug 'w0rp/ale'
-"Plug 'flowtype/vim-flow', {'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g flow-bin'}
+  let g:ale_css_stylelint_use_global = 1
+  let g:ale_css_stylelint_executable='stylelint'
+  let g:ale_sass_stylelint_executable='stylelint'
+  let g:ale_sass_styelint_use_global=1
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
 Plug 'Shougo/denite.nvim'
@@ -214,7 +177,3 @@ call plug#end()
 augroup pandoc_syntax
   au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
-
-"syntastic
-let g:syntastic_javascript_checkers = ['standard']
-

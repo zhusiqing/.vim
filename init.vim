@@ -81,9 +81,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 syntax on
 
-colorscheme brogrammer
-
-autocmd BufRead,BufNewFile *.tag set filetype=javascript
+colorscheme abra
 
 source $HOME/.vim/custom.vim
 
