@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
   """ deoplete
@@ -18,20 +18,24 @@ if has('nvim')
         \]
 endif
 
-Plug 'IN3D/vim-raml'
-Plug 'posva/vim-vue'
+Plug 'Shougo/echodoc.vim'
+
 Plug 'mileszs/ack.vim'
   let g:ackprg = 'rg --vimgrep --no-heading'
   nmap <leader>a :Ack<space>
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-vinegar'
 Plug 'w0rp/ale'
-  let g:ale_enabled = 1
+  let g:ale_enabled = 0
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  let g:ale_open_list = 1
+  let g:ale_keep_list_window_open = 1
   let g:airline#extensions#ale#enabled = 1
   let g:ale_change_sign_column_color = 1
   let g:ale_css_stylelint_use_global = 1
   let g:ale_css_stylelint_executable='stylelint'
-  let g:ale_sass_stylelint_executable='stylelint'
+  let g:ale_sass_stylelint_executable='sasslint'
   let g:ale_sass_styelint_use_global=1
 Plug 'tweekmonster/startuptime.vim'
 Plug 'nikvdp/ejs-syntax'
@@ -73,24 +77,6 @@ Plug 'zhuangya/vim-auto-plug'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 
-if !has('nvim')
-  function! BuildYCM(info)
-    " info is a dictionary with 3 fields
-    " - name:   name of the plugin
-    " - status: 'installed', 'updated', or 'unchanged'
-    " - force:  set on PlugInstall! or PlugUpdate!
-    if a:info.status == 'installed' || a:info.force
-      !./install.py
-    endif
-  endfunction
-
-  Plug 'maralla/completor.vim'
-
-  let g:completor_node_binary = '/usr/local/bin/node'
-  "Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-endif
-
-
 call plug#end()
 
 """"
@@ -102,10 +88,6 @@ call plug#end()
 
 """ css3 syntax
   autocmd FileType css setlocal iskeyword+=-
-
-""" tagbar
-  inoremap <F2> :TagbarToggle<CR>
-  nnoremap <F2> :TagbarToggle<CR>
 
 """ ctrlp
    let g:ctrlp_use_caching = 1
