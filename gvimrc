@@ -12,4 +12,3 @@ if has('gui_macvim')
 endif
 
 runtime! gvimrc.vim
-
