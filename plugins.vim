@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
   """ deoplete
   let g:deoplete#enable_at_startup = 1
 
@@ -18,64 +17,40 @@ if has('nvim')
         \]
 endif
 
-Plug 'Shougo/echodoc.vim'
-
-Plug 'mileszs/ack.vim'
-  let g:ackprg = 'rg --vimgrep --no-heading'
-  nmap <leader>a :Ack<space>
+Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-expand-region'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'guns/vim-sexp'
+Plug 'lyokha/vim-xkbswitch'
+  let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
+  let g:XkbSwitchEnabled = 1
 Plug 'vim-airline/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'majutsushi/tagbar'
+  nmap <F2> :TagbarToggle<CR>
+Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-vinegar'
-Plug 'w0rp/ale'
-  let g:ale_enabled = 0
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 1
-  let g:ale_open_list = 1
-  let g:ale_keep_list_window_open = 1
-  let g:airline#extensions#ale#enabled = 1
-  let g:ale_change_sign_column_color = 1
-  let g:ale_css_stylelint_use_global = 1
-  let g:ale_css_stylelint_executable='stylelint'
-  let g:ale_sass_stylelint_executable='sasslint'
-  let g:ale_sass_styelint_use_global=1
-Plug 'tweekmonster/startuptime.vim'
-Plug 'nikvdp/ejs-syntax'
-Plug 'Shougo/denite.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'csscomb/vim-csscomb'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ervandew/supertab'
 Plug 'flazz/vim-colorschemes'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mhinz/vim-startify'
-Plug 'moskytw/nginx-contrib-vim'
 Plug 'mxw/vim-jsx'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'othree/html5.vim', {'for': 'html'}
 Plug 'pangloss/vim-javascript'
-Plug 'sbdchd/neoformat'
-
-autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote
-let g:neoformat_try_formatprg = 1
-"autocmd BufWritePre *.js Neoformat
 Plug 'stephpy/vim-yaml'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'lambdalisue/gina.vim'
-Plug 'kassio/neoterm'
-Plug 'vimwiki/vimwiki'
-Plug 'tpope/vim-unimpaired'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'zanglg/nova.vim'
-Plug 'zhuangya/vim-auto-plug'
-
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-colorscheme-switcher'
 
 call plug#end()
 

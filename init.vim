@@ -31,7 +31,7 @@ set showmatch
 set smartcase
 set softtabstop=2
 set tabstop=2
-set termguicolors
+"set termguicolors
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=100000
@@ -79,10 +79,11 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 autocmd BufNewFile,BufRead .eslintrc setlocal filetype=json
 autocmd FileType javascript setlocal suffixesadd+=.js path+=$PWD/node_modules
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd BufNewFile,BufRead *.vue setlocal sw=4 filetype=html "poorman's vue setup
 
 syntax on
 
-colorscheme spacegray
+colorscheme mango
 
 source $HOME/.vim/custom.vim
 

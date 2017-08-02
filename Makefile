@@ -1,8 +1,5 @@
-install_dein:
-	mkdir -p .tmp
-	curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > .tmp/installer.sh
-	sh .tmp/installer.sh $$HOME/.vim/dein
-	touch custom.vim
-	nvim -c 'quit'
-
-.PHONY: install_dein
+install_plug:
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +PlugInstall +qall
+.PHONY: install_plug
